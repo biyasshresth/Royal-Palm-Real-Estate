@@ -33,7 +33,7 @@ const App = () => {
     <Router>
       <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<home />} />
         <Route path="/buy" element={<Buy />} />
         <Route path="/Sell" element={<Sell />} />
         <Route path="/Rent" element={<Rent />} />
@@ -59,7 +59,7 @@ const App = () => {
         <Route path="/newsBlogs" element={<NewsBlogs />} />
         <Route path="/downTown" element={<DownTown />} />
         <Route path="/downtownplot" element={<DowntownPlot />} />
-         <Route path="/OurTeam" element={<OurTeam />} />
+        <Route path="/OurTeam" element={<OurTeam />} />
       </Routes>
     </Router>
   );
