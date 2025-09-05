@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import playStore from "../assets/Googleplay.svg";
-import appStore from "../assets/Appstore.png";
 import banner2 from "../assets/banner2.png";
 const VisitUs = () => {
   return (
@@ -34,11 +33,6 @@ const VisitUs = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
-              src={appStore}
-              alt="Download on the App Store"
-              className="w-40 hover:scale-105 transition-transform rounded"
-            />
           </a>
         </div>
       </div>
