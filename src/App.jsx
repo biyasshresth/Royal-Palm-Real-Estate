@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import home from "./components/home";
+import Home from "./components/Home";
 import Header from "./components/header";
 import "./App.css";
 import Buy from "./components/Buy";
@@ -33,7 +33,7 @@ const App = () => {
     <Router>
       <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Routes>
-        <Route path="/" element={<home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/buy" element={<Buy />} />
         <Route path="/Sell" element={<Sell />} />
         <Route path="/Rent" element={<Rent />} />

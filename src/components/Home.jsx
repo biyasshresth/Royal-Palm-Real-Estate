@@ -107,7 +107,7 @@ const HeroSection = ({ subtitle }) => {
   );
 };
 
-const home = () => {
+const Home = () => {
   // Typing effect
   const [typedText, setTypedText] = useState("");
   const fullText =
@@ -247,4 +247,4 @@ const home = () => {
   );
 };
 
-export default home;
+export default Home;
