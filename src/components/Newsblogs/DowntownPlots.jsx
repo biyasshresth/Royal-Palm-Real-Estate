@@ -71,6 +71,7 @@ const DowntownPlot = () => {
                   <FiMap className="text-orange-500" /> Chabahil Hillside
                 </p>
               </div>
+              
             </div>
           </div>
         </div>

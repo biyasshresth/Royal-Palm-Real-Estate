@@ -107,7 +107,7 @@ const HeroSection = ({ subtitle }) => {
   );
 };
 
-const Home = () => {
+const home = () => {
   // Typing effect
   const [typedText, setTypedText] = useState("");
   const fullText =
@@ -209,9 +209,7 @@ const Home = () => {
                   loading="lazy"
                   className="h-40 w-full object-cover mb-4 rounded"
                 />
-                <h3 className="text-lg font-semibold mb-2">
-                  {property.title}
-                </h3>
+                <h3 className="text-lg font-semibold mb-2">{property.title}</h3>
                 <p className="text-gray-600">
                   {property.price} · {property.features}
                 </p>
@@ -249,4 +247,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default home;

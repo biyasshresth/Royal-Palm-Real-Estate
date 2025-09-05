@@ -109,6 +109,7 @@ const DownTown = () => {
               <div className="font-medium">Ads Posted:</div>
               <div>21 hours ago</div>
 
+
               <div className="font-medium">Ads Expiry:</div>
               <div>2025-09-18</div>
             </div>
