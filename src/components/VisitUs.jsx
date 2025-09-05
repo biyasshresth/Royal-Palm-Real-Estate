@@ -28,12 +28,6 @@ const VisitUs = () => {
               className="w-40 h-60 hover:scale-105 transition-transform"
             />
           </a>
-          <a
-            href="https://apps.apple.com/us/app/apple-store/id375380948"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-          </a>
         </div>
       </div>
 
