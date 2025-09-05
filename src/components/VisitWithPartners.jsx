@@ -1,6 +1,5 @@
 import React from "react";
 import { useEffect } from "react";
-import VisitUs from "./VisitUs";
 import PartnerDiscrip from "./PartnerDiscrip";
 
 const VisitWithPartners = () => {
@@ -10,7 +9,6 @@ const VisitWithPartners = () => {
 
   return (
     <div className="space-y-16">
-      <VisitUs />
       <PartnerDiscrip />
     </div>
   );

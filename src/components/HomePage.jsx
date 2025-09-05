@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { CiSearch, CiLocationOn } from "react-icons/ci";
 import { FaArrowUp } from "react-icons/fa";
 import modernHome from "../assets/modernHome.jpg";
