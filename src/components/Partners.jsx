@@ -2,10 +2,10 @@ import React from "react";
 import { FaHome, FaSmile, FaAward, FaStar } from "react-icons/fa";
 import consultancy from "../assets/consultancy.png";
 import Tbother from "../assets/Tbother.jpg";
-import logo from "../assets/logo.svg";  
+import logo from "../assets/logo.svg";
 import { Link } from "react-router-dom";
 
-const AboutSection = () => {
+const Partners = () => {
   return (
     <section className="bg-gray-50 py-16 px-6 md:px-20 w-screen">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-10">
@@ -61,7 +61,7 @@ const AboutSection = () => {
 
           {/* Button */}
           <Link
-            to="/visit"
+            to="/VisitWithPartners"
             className="inline-block mt-6 bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-medium transition"
           >
             Learn More About Us
@@ -98,4 +98,4 @@ const AboutSection = () => {
   );
 };
 
-export default AboutSection;
+export default Partners;
