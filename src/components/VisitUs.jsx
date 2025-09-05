@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import playStore from "../assets/Googleplay.svg";
 import banner2 from "../assets/banner2.png";
 const VisitUs = () => {
   return (
@@ -15,22 +14,7 @@ const VisitUs = () => {
           explore exclusive deals, and stay connected with your
           community—anytime, anywhere.
         </p>
-
-        <div className="flex flex-col sm:flex-row sm:justify-start justify-center items-center gap-4 mt-4">
-          <a
-            href="https://play.google.com/store/apps/details?id=com.google.android.apps.maps"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src={playStore}
-              alt="Get it on Google Play"
-              className="w-40 h-60 hover:scale-105 transition-transform"
-            />
-          </a>
-        </div>
       </div>
-
       {/* Right Image */}
       <div className="md:w-1/2 mb-10 md:mb-0 flex justify-center">
         <img
