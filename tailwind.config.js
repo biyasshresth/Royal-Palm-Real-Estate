@@ -5,6 +5,7 @@ export default {
     extend: {
       // Fonts
       fontFamily: {
+        times: ["'Times New Roman'", 'serif'],
         display: ['"Playfair Display"', "serif"],
         body: ["Manrope", "ui-sans-serif", "system-ui", "sans-serif"],
         playfair: ['"Playfair Display"', "serif"],

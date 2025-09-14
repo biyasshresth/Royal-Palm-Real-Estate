@@ -14,8 +14,7 @@ const HouseUpdate: FC = () => {
     <div className="min-h-screen bg-white p-6">
       {/* Header centered */}
       <h1
-        className="text-2xl font-bold mb-6 text-center"
-        style={{ fontFamily: "'Times New Roman', serif" }}
+        className="text-2xl font-bold mb-6 text-center font-times"
       >
         Trending Price and Location
       </h1>

@@ -36,3 +36,6 @@ html {
 .banner {
   animation: slide 0.5s linear infinite;
 }
+.times-font {
+font-family: 'Times New Roman', serif;
+}
