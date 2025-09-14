@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-
+import logo from "../assets/logo.svg";
 const TermsPolicy: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -11,7 +11,7 @@ const TermsPolicy: React.FC = () => {
         {/* Logo Section */}
         <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-6">
           <img
-            src="/logo.svg"
+            src={logo}
             alt="Palm Real Estate Logo"
             className="h-24 left-72 justify-start"
           />

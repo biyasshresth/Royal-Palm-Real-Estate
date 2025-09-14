@@ -122,7 +122,7 @@ const Footer: React.FC = () => {
               </Link>
             </li>
             <li>
-              <Link to="/faq" className="hover:text-white hover:underline">
+              <Link to="/faq" className="hover:text-white hover:underline">c
                 FAQ
               </Link>
             </li>

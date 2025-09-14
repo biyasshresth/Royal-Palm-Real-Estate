@@ -11,7 +11,8 @@ import Faq from "./components/Faq";
 import NewsUpdate from "./components/NewsBlogs/PlotUpdate";
 import HouseUpdate from "./components/NewsBlogs/HouseUpdate";
 import NewsblogsPage from "./components/NewsBlogs/NewsblogsPage";
-
+import TermsPolicy from "./components/TermsPolicy";
+import PrivacyPolicy from "./components/PrivacyPolicy";
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
@@ -31,10 +32,10 @@ const App: React.FC = () => {
             <Route path="/NewsUpdate" element={<NewsUpdate />} />
             <Route path="/HouseUpdate" element={<HouseUpdate />} />
             <Route path="/NewsblogsPage" element={<NewsblogsPage />} />
+            <Route path="/TermsPolicy" element={<TermsPolicy />} />
+            <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
           </Routes>
         </main>
-     
-        {/* <Footer /> */}
       </div>
     </Router>
   );
