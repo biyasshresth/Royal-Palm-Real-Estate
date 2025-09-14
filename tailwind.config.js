@@ -8,6 +8,7 @@ export default {
         display: ['"Playfair Display"', "serif"],
         body: ["Manrope", "ui-sans-serif", "system-ui", "sans-serif"],
         playfair: ['"Playfair Display"', "serif"],
+        times: ["'Times New Roman'", "serif"],
       },
       // Colors
       colors: {

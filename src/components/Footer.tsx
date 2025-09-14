@@ -127,7 +127,7 @@ const Footer: React.FC = () => {
               </Link>
             </li>
             <li>
-              <Link to="/NewsBlogs" className="hover:text-white hover:underline">
+              <Link to="/NewsblogsPage" className="hover:text-white hover:underline">
                 News & Blogs
               </Link>
             </li>

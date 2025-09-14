@@ -13,9 +13,6 @@ import Faq from "./Faq";
 import Footer from "./Footer";
 import RotatingBanner from "./RotatingBanner";
 
-// Import the external CSS that contains the fade-in helper classes
-import "../styles/fade-in.css";
-
 // ----------------------
 // Custom Hook: useInView
 // ----------------------
@@ -307,7 +304,6 @@ const Home: React.FC = () => {
       <FadeInOnScroll>
         <Footer />
       </FadeInOnScroll>
-
       {/* Scroll-to-Top Button */}
       {showButton && (
         <button
