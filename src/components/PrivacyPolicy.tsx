@@ -6,9 +6,9 @@ const PrivacyPolicy: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4 sm:p-6 md:p-8 text-left">
+    <div className="min-h-screen bg-gray-400 p-4 sm:p-6 md:p-8 text-left">
       {/* Title */}
-      <h1 className="text-2xl sm:text-xl md:text-xl font-bold text-gray-800 text-left">
+      <h1 className="text-2xl font-bold text-gray-800 text-left">
         PRIVACY POLICY
       </h1>
       <p className="text-sm text-gray-500 mb-6">Last updated May 07, 2025</p>

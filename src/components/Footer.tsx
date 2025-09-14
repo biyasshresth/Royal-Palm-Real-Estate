@@ -172,7 +172,7 @@ const Footer: React.FC = () => {
           © 2025 Royal Palm Real Estate. All rights reserved.
         </p>
         <div className="flex space-x-6">
-          <Link to="/Privacy" className="hover:text-white hover:underline">
+          <Link to="/PrivacyPolicy" className="hover:text-white hover:underline">
             Privacy & Policy
           </Link>
           <Link to="/TermsPolicy" className="hover:text-white hover:underline">

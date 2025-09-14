@@ -13,6 +13,7 @@ import HouseUpdate from "./components/NewsBlogs/HouseUpdate";
 import NewsblogsPage from "./components/NewsBlogs/NewsblogsPage";
 import TermsPolicy from "./components/TermsPolicy";
 import PrivacyPolicy from "./components/PrivacyPolicy";
+import DataDeletion from "./components/DataDeletion";
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
@@ -34,6 +35,7 @@ const App: React.FC = () => {
             <Route path="/NewsblogsPage" element={<NewsblogsPage />} />
             <Route path="/TermsPolicy" element={<TermsPolicy />} />
             <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+            <Route path="/DataDeletion" element={<DataDeletion />} />
           </Routes>
         </main>
       </div>
