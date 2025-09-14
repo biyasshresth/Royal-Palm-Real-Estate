@@ -6,7 +6,7 @@ const PrivacyPolicy: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-400 p-4 sm:p-6 md:p-8 text-left">
+    <div>
       {/* Title */}
       <h1 className="text-2xl font-bold text-gray-800 text-left">
         PRIVACY POLICY
