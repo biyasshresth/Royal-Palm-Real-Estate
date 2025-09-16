@@ -1,0 +1,18 @@
+/* Base helper: mark element for will-change */
+.fade-in-on-scroll {
+  will-change: transform, opacity;
+}
+
+/* Allowed transition-delay classes (pick nearest in component) */
+.fade-delay-0 { transition-delay: 0ms; }
+.fade-delay-50 { transition-delay: 50ms; }
+.fade-delay-100 { transition-delay: 100ms; }
+.fade-delay-150 { transition-delay: 150ms; }
+.fade-delay-200 { transition-delay: 200ms; }
+.fade-delay-250 { transition-delay: 250ms; }
+.fade-delay-300 { transition-delay: 300ms; }
+.fade-delay-350 { transition-delay: 350ms; }
+.fade-delay-400 { transition-delay: 400ms; }
+.fade-delay-500 { transition-delay: 500ms; }
+.fade-delay-700 { transition-delay: 700ms; }
+.fade-delay-1000 { transition-delay: 1000ms; }
