@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import modernHome from "../assets/modernHome.jpg";
 import Picture1 from "../assets/Picture1.png";
 import Picture2 from "../assets/Picture2.png";
 import waterfrontVilla from "../assets/WaterFront.jpg";
@@ -9,7 +8,6 @@ import Picture5 from "../assets/Picture5.png";
 
 const RotatingBanner = () => {
   const bannerImages = [
-    modernHome,
     Picture1,
     Picture2,
     waterfrontVilla,

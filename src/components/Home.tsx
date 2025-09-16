@@ -51,12 +51,16 @@ interface FadeInOnScrollProps {
  * We map the requested delay to the nearest pre-defined delay class
  * (so we don't have to use inline styles).
  */
-const ALLOWED_DELAYS = [0, 50, 100, 150, 200, 250, 300, 350, 400, 500, 700, 1000];
+const ALLOWED_DELAYS = [
+  0, 50, 100, 150, 200, 250, 300, 350, 400, 500, 700, 1000,
+];
 
 function nearestDelayClass(delay = 0) {
-  let nearest = ALLOWED_DELAYS.reduce((prev, curr) =>
-    Math.abs(curr - delay) < Math.abs(prev - delay) ? curr : prev
-  , ALLOWED_DELAYS[0]);
+  let nearest = ALLOWED_DELAYS.reduce(
+    (prev, curr) =>
+      Math.abs(curr - delay) < Math.abs(prev - delay) ? curr : prev,
+    ALLOWED_DELAYS[0]
+  );
   return `fade-delay-${nearest}`;
 }
 
@@ -72,7 +76,9 @@ const FadeInOnScroll: React.FC<FadeInOnScrollProps> = ({
   return (
     <div
       ref={ref}
-      className={`${className} transition-transform duration-700 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"} fade-in-on-scroll ${delayClass}`}
+      className={`${className} transition-transform duration-700 ease-out ${
+        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+      } fade-in-on-scroll ${delayClass}`}
     >
       {children}
     </div>
