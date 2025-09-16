@@ -3,7 +3,7 @@ import { FiSearch } from "react-icons/fi";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import logo from "../assets/logo.svg";
 
-// Define FAQ interface
+ 
 interface FAQ {
   id: number;
   q: string;

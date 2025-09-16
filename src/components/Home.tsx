@@ -13,9 +13,6 @@ import Faq from "./Faq";
 import Footer from "./Footer";
 import RotatingBanner from "./RotatingBanner";
 
-// ----------------------
-// Custom Hook: useInView
-// ----------------------
 const useInView = (options: IntersectionObserverInit = {}) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const [inView, setInView] = useState(false);

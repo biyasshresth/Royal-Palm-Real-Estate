@@ -47,7 +47,7 @@ const NewsblogsPage: FC = () => {
       author: "S2 36hm Dae",
       description: "Driving river exerted by returns ero imperial area and a soverno",
       image: Suburban,
-      link: "#",
+      link: "HouseUpdate",
     },
     {
       id: 2,
@@ -56,7 +56,7 @@ const NewsblogsPage: FC = () => {
       author: "Jaha Smith",
       description: "Feedis reather emori larnth of the timoe-cho a times Fmnaab",
       image: BannerLand,
-      link: "#",
+      link:"PlotUpdate",
     },
   ];
 
@@ -150,7 +150,7 @@ const NewsblogsPage: FC = () => {
                 <p className="text-gray-500 text-sm mb-2">{`${article.date} · ${article.author}`}</p>
                 <p className="text-gray-700 mb-4">{article.description}</p>
                 <Link
-                  to={article.id === 1 ? "/NewsUpdate" : "/NewsUpdate"}
+                  to={article.id === 1 ? "/HouseUpdate" : "/PlotUpdate"}
                   className="text-blue-600 font-semibold transform transition-transform duration-200 hover:scale-110"
                 >
                   Read More

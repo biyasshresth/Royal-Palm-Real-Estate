@@ -16,10 +16,26 @@ interface Stat {
 
 const Partners: React.FC = () => {
   const stats: Stat[] = [
-    { icon: <FaHome className="h-8 w-8" />, title: "2,500+", label: "Properties Sold" },
-    { icon: <FaSmile className="h-8 w-8" />, title: "1,200+", label: "Happy Clients" },
-    { icon: <FaAward className="h-8 w-8" />, title: "15+", label: "Years Experience" },
-    { icon: <FaStar className="h-8 w-8" />, title: "4.9", label: "Client Rating" },
+    {
+      icon: <FaHome className="h-8 w-8" />,
+      title: "2,500+",
+      label: "Properties Sold",
+    },
+    {
+      icon: <FaSmile className="h-8 w-8" />,
+      title: "1,200+",
+      label: "Happy Clients",
+    },
+    {
+      icon: <FaAward className="h-8 w-8" />,
+      title: "15+",
+      label: "Years Experience",
+    },
+    {
+      icon: <FaStar className="h-8 w-8" />,
+      title: "4.9",
+      label: "Client Rating",
+    },
   ];
 
   return (
@@ -56,7 +72,7 @@ const Partners: React.FC = () => {
 
           {/* Button */}
           <Link
-            to="/VisitWithPartners"
+            to="/PartnerDiscrip"
             className="inline-block mt-6 bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-medium transition"
           >
             Learn More About Us

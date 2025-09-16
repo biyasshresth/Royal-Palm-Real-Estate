@@ -117,17 +117,20 @@ const Footer: React.FC = () => {
               </Link>
             </li>
             <li>
-              <Link to="/OurTeam" className="hover:text-white hover:underline">
+              <Link to="/our-team" className="hover:text-white hover:underline">
                 Our Team
               </Link>
             </li>
             <li>
-              <Link to="/faq" className="hover:text-white hover:underline">c
+              <Link to="/Faq" className="hover:text-white hover:underline">
                 FAQ
               </Link>
             </li>
             <li>
-              <Link to="/NewsblogsPage" className="hover:text-white hover:underline">
+              <Link
+                to="/NewsblogsPage"
+                className="hover:text-white hover:underline"
+              >
                 News & Blogs
               </Link>
             </li>
@@ -172,7 +175,10 @@ const Footer: React.FC = () => {
           © 2025 Royal Palm Real Estate. All rights reserved.
         </p>
         <div className="flex space-x-6">
-          <Link to="/PrivacyPolicy" className="hover:text-white hover:underline">
+          <Link
+            to="/PrivacyPolicy"
+            className="hover:text-white hover:underline"
+          >
             Privacy & Policy
           </Link>
           <Link to="/TermsPolicy" className="hover:text-white hover:underline">

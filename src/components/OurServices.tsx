@@ -1,10 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { FaHome, FaChartLine, FaKey, FaUsers, FaWallet, FaGavel } from "react-icons/fa";
+import {
+  FaHome,
+  FaChartLine,
+  FaKey,
+  FaUsers,
+  FaWallet,
+  FaGavel,
+} from "react-icons/fa";
 
-// ----------------------
-// Service Type
-// ----------------------
 interface Service {
   icon: React.ReactNode;
   title: string;
@@ -22,7 +26,7 @@ const Services: React.FC = () => {
       ),
       title: "Property Sales",
       desc: "Expert guidance through buying and selling residential and commercial properties",
-      link: "/plot-offer",
+      link: "/PropertySales",
     },
     {
       icon: (
@@ -46,7 +50,7 @@ const Services: React.FC = () => {
       ),
       title: "Investment Consulting",
       desc: "Strategic advice for real estate investment opportunities",
-      link: "/HeroBanner",
+      link: "/InvestmentConsult",
     },
     {
       icon: (

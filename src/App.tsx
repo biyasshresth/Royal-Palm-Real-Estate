@@ -14,6 +14,18 @@ import NewsblogsPage from "./components/NewsBlogs/NewsblogsPage";
 import TermsPolicy from "./components/TermsPolicy";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import DataDeletion from "./components/DataDeletion";
+import Contact from "./components/Contact";
+import PlotUpdate from "./components/NewsBlogs/PlotUpdate";
+import OurTeam from "./components/OurTeam";
+import PartnerDiscrip from "./components/PartnersDiscrip";
+import Buy from "./components/Buy";
+import Sell from "./components/Sell";
+import PropertySales from "./components/PropertySales";
+import MarketAnalysis from "./components/MarketAnalysis";
+import MortageService from "./components/MortageService";
+import PropMgnt from "./components/PropMgnt";
+import InvestmentConsult from "./components/InvestmentConsult";
+
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
@@ -36,6 +48,18 @@ const App: React.FC = () => {
             <Route path="/TermsPolicy" element={<TermsPolicy />} />
             <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
             <Route path="/DataDeletion" element={<DataDeletion />} />
+            <Route path="/Contact" element={<Contact />} />
+            <Route path="/PlotUpdate" element={<PlotUpdate />} />
+            <Route path="/Faq" element={<Faq />} />
+            <Route path="/our-team" element={<OurTeam />} />
+            <Route path="/PartnerDiscrip" element={<PartnerDiscrip />} />
+            <Route path="/Buy" element={<Buy />} />
+            <Route path="/Sell" element={<Sell />} />
+            <Route path="/PropertySales" element={<PropertySales />} />
+            <Route path="/MarketAnalysis" element={<MarketAnalysis />} />
+            <Route path="/MortageService" element={<MortageService />} />
+            <Route path="/PropMgnt" element={<PropMgnt />} />
+            <Route path="/InvestmentConsult" element={<InvestmentConsult />} />
           </Routes>
         </main>
       </div>
