@@ -116,6 +116,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ subtitle }) => {
               <CiLocationOn className="text-red-600 mr-2 font-extrabold" />
               <input
                 type="text"
+                name="location"
                 placeholder="Enter location"
                 className="outline-none py-2 w-full text-black"
                 aria-label="Enter location"
