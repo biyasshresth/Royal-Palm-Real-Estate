@@ -71,7 +71,7 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section className="bg-white py-16 px-4 w-full">
+    <section className="bg-white py-16 px-4 w-full sm:px-6 md:pt-20">
       <div className="text-center max-w-3xl mx-auto mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
           Our Services
