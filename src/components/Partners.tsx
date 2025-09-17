@@ -39,7 +39,7 @@ const Partners: React.FC = () => {
   ];
 
   return (
-    <section className="bg-gray-50 py-16 px-6 md:px-20 w-screen">
+    <section className="bg-gray-50 py-16 px-6 md:px-20 sm:px-6 md:pt-20">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-10">
         {/* Left Content */}
         <div className="md:w-1/2 space-y-6">

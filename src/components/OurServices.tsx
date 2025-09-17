@@ -16,7 +16,7 @@ interface Service {
   link?: string;
 }
 
-const Services: React.FC = () => {
+const OurServices: React.FC = () => {
   const navigate = useNavigate();
 
   const services: Service[] = [
@@ -71,7 +71,7 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section className="bg-white py-16 px-4 w-screen">
+    <section className="bg-white py-16 px-4  sm:px-6 md:pt-20 w-full">
       <div className="text-center max-w-3xl mx-auto mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
           Our Services
@@ -109,4 +109,4 @@ const Services: React.FC = () => {
   );
 };
 
-export default Services;
+export default OurServices;
