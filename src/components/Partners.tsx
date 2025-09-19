@@ -88,7 +88,7 @@ const Partners: React.FC = () => {
           <img
             src={logo}
             alt="Logo"
-            className="w-28 sm:w-40 h-auto object-contain max-w-full"
+            className="w-24 sm:w-40 h-auto object-contain max-w-full"
           />
 
           {/* Bottom Cards */}

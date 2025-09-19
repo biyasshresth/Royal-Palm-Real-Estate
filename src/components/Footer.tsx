@@ -7,6 +7,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.svg";
 
 const Footer: React.FC = () => {
   return (
@@ -16,10 +17,8 @@ const Footer: React.FC = () => {
         {/* Company Info */}
         <div>
           <div className="flex items-center mb-4">
-            <div className="text-orange-500 text-3xl mr-2" aria-hidden="true">
-              🏠
-            </div>
-            <h2 className="text-white text-xl font-bold">
+            <img src={logo} alt="Logo" className="w-10 h-10 object-contain" />
+            <h2 className="text-white text-xl font-bold p-4">
               Royal Palm Real Estate
             </h2>
           </div>

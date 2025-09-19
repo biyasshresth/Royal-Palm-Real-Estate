@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { ChangeEvent } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { HiMenu, HiX, HiSearch } from "react-icons/hi";
@@ -39,6 +39,9 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn, setIsLoggedIn }) => {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
 
   return (
     <header className="bg-white shadow-md px-6 py-4 w-full">
@@ -48,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn, setIsLoggedIn }) => {
           className="flex items-center space-x-2 cursor-pointer"
           onClick={() => navigate("/")}
         >
-          <img src={logo} alt="Logo" className="w-10 h-10 object-contain" />
+          <img src={logo} alt="Logo" className="w-16 h-w-16 object-contain" />
           <h1 className="text-2xl font-bold text-black font-serif">
             Real Estate Palm
           </h1>
