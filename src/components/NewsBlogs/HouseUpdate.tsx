@@ -11,16 +11,15 @@ const HouseUpdate: FC = () => {
   const [liked, setLiked] = useState<boolean>(false);
 
   return (
-    <div className="min-h-screen bg-white p-6">
-      {/* Header centered */}
-      <h1
-        className="text-2xl font-bold mb-6 text-center font-times"
-      >
-        Trending Price and Location
-      </h1>
+    <div className="min-h-screen bg-white">
+      <div className="flex justify-center items-center p-6 border-b bg-orange-600 mb-4">
+        <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white font-times">
+          Trending Price and Location
+        </h1>
+      </div>
 
       {/* Main horizontal layout */}
-      <div className="flex gap-6">
+      <div className="flex gap-6 p-6">
         {/* Left column: Plot Image + Like button + Seller details */}
         <div className="md:w-1/3 w-full flex flex-col items-center gap-4">
           {/* Plot image */}
@@ -54,21 +53,22 @@ const HouseUpdate: FC = () => {
             <h3 className="text-lg font-semibold mb-4 underline">
               Seller's Details
             </h3>
-            <div className="flex items-center gap-4 mb-4">
+            <div className="flex items-start gap-4">
               {/* Profile placeholder */}
-              <button className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
+              <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden shrink-0">
                 <span className="text-gray-500 text-sm">Img</span>
-              </button>
+              </div>
+
               {/* Seller Info */}
-              <div className="space-y-2">
+              <div className="flex flex-col gap-1">
                 <p className="font-semibold text-lg">John Doe</p>
-                <p className="flex items-center text-gray-500 text-sm gap-1">
+                <p className="flex items-center text-gray-500 text-sm gap-2">
                   <FiPhone className="text-gray-600" /> +977-9812345678
                 </p>
-                <p className="flex items-center text-sm text-gray-800 gap-1">
+                <p className="flex items-center text-gray-500 text-sm gap-2">
                   <FiMapPin className="text-gray-600" /> Kalanki, Kathmandu
                 </p>
-                <p className="flex items-center text-sm text-gray-800 gap-1">
+                <p className="flex items-center text-gray-500 text-sm gap-2">
                   <FiMap className="text-gray-600" /> Chabahil Hillside
                 </p>
               </div>

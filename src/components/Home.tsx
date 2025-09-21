@@ -253,7 +253,7 @@ const Home: React.FC = () => {
   ];
 
   return (
-    <div className="w-screen relative min-h-screen">
+    <div className="w-full relative min-h-full">
       {/* Rotating Image Banner */}
       <RotatingBanner />
 
@@ -305,9 +305,9 @@ const Home: React.FC = () => {
       <FadeInOnScroll>
         <Faq />
       </FadeInOnScroll>
-      <FadeInOnScroll>
+      {/* <FadeInOnScroll>
         <Footer />
-      </FadeInOnScroll>
+      </FadeInOnScroll> */}
       {/* Scroll-to-Top Button */}
       {showButton && (
         <button

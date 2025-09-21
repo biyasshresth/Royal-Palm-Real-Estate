@@ -31,7 +31,7 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-full  ">
         <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
 
         <main className="flex-grow">
@@ -62,6 +62,7 @@ const App: React.FC = () => {
             <Route path="/InvestmentConsult" element={<InvestmentConsult />} />
           </Routes>
         </main>
+        <Footer />
       </div>
     </Router>
   );

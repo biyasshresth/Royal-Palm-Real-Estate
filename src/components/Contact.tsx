@@ -1,6 +1,11 @@
 import React, { useState, FormEvent } from "react";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from "react-icons/fa";
-import Footer from "./Footer"; 
+import {
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaClock,
+} from "react-icons/fa";
+import Footer from "./Footer";
 
 interface InfoCardProps {
   icon: React.ReactElement;
@@ -8,9 +13,9 @@ interface InfoCardProps {
   children: React.ReactNode;
 }
 
-const InfoCard: React.FC<InfoCardProps> = ({ icon, title, children }): React.ReactElement => {
+const InfoCard: React.FC<InfoCardProps> = ({ icon, title, children }) => {
   return (
-    <div className="bg-white border rounded-lg p-3 shadow-xl text-sm">
+    <div className="bg-white border rounded-lg p-3 shadow-xl text-sm overflow-x-hidden">
       <div className="flex items-start gap-3">
         <div className="text-orange-600 text-xl mt-0.5">{icon}</div>
         <div>
@@ -32,156 +37,191 @@ const Contact: React.FC = (): React.ReactElement => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
+    // replace with real submit logic if you have API endpoint
     alert("Message submitted (SUCCESSFULLY!!!!!!)");
   };
 
   return (
-    <section className="min-h-screen py-10 px-2 md:px-16 bg-white">
-      {/* Page heading */}
-      <div className="text-center mb-10 bg-orange-600 py-10 px-4 rounded-lg w-full">
-  <h1 className="text-4xl font-bold text-white mb-2">Get In Touch</h1>
-  <p className="text-white">
-    Ready to start your real estate journey? Contact our expert team today.
-  </p>
-</div>
-
-      
-
-      {/* Two-column layout */}
-      <div className="flex flex-col lg:flex-row gap-8">
-        <div className="w-full lg:w-2/5">
-          {/* Section title */}
-          <div className="mb-6">
-            <h2 className="text-2xl font-semibold text-gray-800">Contact Information</h2>
-            <p className="text-sm text-gray-600 mt-1">
-              Quick ways to reach us — or send a message below.
+    <>
+      <header className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white h-44">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center py-12 sm:py-16 lg:py-10">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
+              Get In Touch
+            </h1>
+            <p className="mt-3 max-w-2xl mx-auto text-sm sm:text-lg">
+              Ready to start your real estate journey? Contact our expert team
+              today.
             </p>
           </div>
+        </div>
+      </header>
 
-          {/* Info cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <InfoCard icon={<FaPhoneAlt />} title="">
-              <div>
-                <div className="text-xs text-gray-500 mb-1">Sun–Fri · 10am–5pm</div>
-                <div className="font-medium text-sm text-gray-800">
-                  (+977) 9840060167 <br /> (+977) 9851152903
+      {/* Main content area (centered container) */}
+      <main className="bg-white  ">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 overflow-x-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            {/* Left column (contact info + form) */}
+            <div className="lg:col-span-5">
+              {/* Section title */}
+              <div className="mb-6">
+                <h2 className="text-2xl font-semibold text-gray-800">
+                  Contact Information
+                </h2>
+                <p className="text-sm text-gray-600 mt-1">
+                  Quick ways to reach us — or send a message below.
+                </p>
+              </div>
+
+              {/* Info cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <InfoCard icon={<FaPhoneAlt />} title="">
+                  <div>
+                    <div className="text-xs text-gray-500 mb-1">
+                      Sun–Fri · 10am–5pm
+                    </div>
+                    <div className="font-medium text-sm text-gray-800">
+                      (+977) 9840060167 <br /> (+977) 9851152903
+                    </div>
+                  </div>
+                </InfoCard>
+
+                <InfoCard icon={<FaEnvelope />} title="">
+                  <div>
+                    <div className="text-xs text-gray-500 mb-1">Support</div>
+                    <div className="font-medium text-sm text-gray-800 break-all">
+                      contact@royalpalmrealestate.com.np
+                    </div>
+                  </div>
+                </InfoCard>
+
+                <InfoCard icon={<FaMapMarkerAlt />} title="Location">
+                  <div>
+                    <div className="text-xs text-gray-500 mb-1">
+                      Chabahil · Chunikhel, Budhanilkantha-13
+                    </div>
+                    <button
+                      onClick={() => window.open(tMartDirectLink, "_blank")}
+                      className="text-xs text-blue-600 hover:underline"
+                      aria-label="Open T. Mart location in Google Maps"
+                    >
+                      Show T. Mart location
+                    </button>
+                  </div>
+                </InfoCard>
+
+                <InfoCard icon={<FaClock />} title="Office hours">
+                  <div>
+                    <div className="text-xs text-gray-500 mb-1">
+                      Office hours
+                    </div>
+                    <div className="font-medium text-sm text-gray-800">
+                      Sun – Fri · 10am – 5pm
+                    </div>
+                  </div>
+                </InfoCard>
+              </div>
+
+              {/* Send us a Message */}
+              <div className="mt-10">
+                <div className="bg-white border border-gray-200 rounded-lg shadow-xl p-5">
+                  <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                    Send us a Message
+                  </h3>
+
+                  <form
+                    onSubmit={handleSubmit}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-3"
+                  >
+                    <input
+                      type="text"
+                      name="firstName"
+                      placeholder="First name"
+                      className="w-full border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200"
+                      required
+                    />
+                    <input
+                      type="text"
+                      name="lastName"
+                      placeholder="Last name"
+                      className="w-full border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200"
+                      required
+                    />
+
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email address"
+                      className="col-span-1 md:col-span-2 w-full border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200"
+                      required
+                    />
+
+                    <input
+                      type="text"
+                      name="phone"
+                      placeholder="Phone number"
+                      className="col-span-1 md:col-span-2 w-full border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200"
+                    />
+
+                    <input
+                      type="text"
+                      name="subject"
+                      placeholder="Subject"
+                      className="col-span-1 md:col-span-2 w-full border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200"
+                      required
+                    />
+
+                    <textarea
+                      name="message"
+                      placeholder="Your message"
+                      rows={4}
+                      className="col-span-1 md:col-span-2 w-full border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200 resize-none"
+                      required
+                    />
+
+                    <button
+                      type="submit"
+                      className="col-span-1 md:col-span-2 bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 rounded-md"
+                    >
+                      Send Message
+                    </button>
+                  </form>
                 </div>
               </div>
-            </InfoCard>
+            </div>
 
-            <InfoCard icon={<FaEnvelope />} title="">
-              <div>
-                <div className="text-xs text-gray-500 mb-1">Support</div>
-                <div className="font-medium text-sm text-gray-800 break-all">
-                  contact@royalpalmrealestate.com.np
+            {/* Right column (map) */}
+            <div className="lg:col-span-7">
+              <div className="flex flex-col">
+                {/* Title above the map */}
+                <h3 className="text-2xl font-semibold text-gray-800 mb-4 text-center lg:text-left">
+                  Located Map
+                </h3>
+
+                {/* Responsive map container:
+                    - On small screens we use a smaller fixed height
+                    - On larger screens it grows taller
+                */}
+                <div className="w-full rounded-lg overflow-hidden border shadow-lg">
+                  <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[600px]">
+                    <iframe
+                      title="Chabahil T-Mart location"
+                      src={mapSrc}
+                      width="100%"
+                      height="100%"
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      className="block border-0"
+                    />
+                  </div>
                 </div>
               </div>
-            </InfoCard>
-
-            <InfoCard icon={<FaMapMarkerAlt />} title="">
-              <div>
-                <div className="text-xs text-gray-500 mb-1">
-                  Chabahil · Chunikhel, Budhanilkantha-13
-                </div>
-                <button
-                  onClick={() => window.open(tMartDirectLink, "_blank")}
-                  className="text-xs text-blue-600 hover:underline"
-                  aria-label="Open T. Mart location in Google Maps"
-                >
-                  Show T. Mart location
-                </button>
-              </div>
-            </InfoCard>
-
-            <InfoCard icon={<FaClock />} title="">
-              <div>
-                <div className="text-xs text-gray-500 mb-1">Office hours</div>
-                <div className="font-medium text-sm text-gray-800">Sun – Fri · 10am – 5pm</div>
-              </div>
-            </InfoCard>
-          </div>
-
-          {/* Send us a Message */}
-          <div className="mt-10">
-            <div className="bg-white border border-gray-400 rounded-lg shadow-xl p-5">
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">Send us a Message</h3>
-
-              <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <input
-                  type="text"
-                  name="firstName"
-                  placeholder="First name"
-                  className="border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200"
-                  required
-                />
-                <input
-                  type="text"
-                  name="lastName"
-                  placeholder="Last name"
-                  className="border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200"
-                  required
-                />
-
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email address"
-                  className="col-span-1 md:col-span-2 border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200"
-                  required
-                />
-
-                <input
-                  type="text"
-                  name="phone"
-                  placeholder="Phone number"
-                  className="col-span-1 md:col-span-2 border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200"
-                />
-
-                <input
-                  type="text"
-                  name="subject"
-                  placeholder="Subject"
-                  className="col-span-1 md:col-span-2 border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200"
-                  required
-                />
-
-                <textarea
-                  name="message"
-                  placeholder="Your message"
-                  rows={4}
-                  className="col-span-1 md:col-span-2 border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200 resize-none"
-                  required
-                />
-
-                <button
-                  type="submit"
-                  className="col-span-1 md:col-span-2 bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 rounded-md"
-                >
-                  Send Message
-                </button>
-              </form>
             </div>
           </div>
-        </div>
-
-        {/* Map */}
-      
-        <div className="w-full lg:w-3/5 h-[700px] p-2 mt-14">
-          <div className="w-full h-full rounded-lg overflow-hidden border shadow-lg">
-            <iframe
-              title="Chabahil T-Mart location"
-              src={mapSrc}
-              width="100%"
-              height="100%"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="block"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
+      </main>
+    </>
   );
 };
 
