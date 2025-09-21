@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ButtonPic from "../assets/Buttonpic.png";
 
 interface Service {
@@ -9,6 +9,11 @@ interface Service {
 }
 
 const PropMgnt: React.FC = () => {
+  // Scroll to top on component mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const services: Service[] = [
     {
       icon: "💰",

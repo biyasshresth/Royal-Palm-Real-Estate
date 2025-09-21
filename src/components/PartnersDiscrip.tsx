@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Tbrother from "../assets/Tbother.jpg";
 import consultancy from "../assets/consultancy.png";
 
 const PartnerDiscrip: React.FC = () => {
   const [openCard, setOpenCard] = useState<number | null>(null);
+
+  // Scroll to top on component mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const toggleCard = (index: number) => {
     setOpenCard(openCard === index ? null : index);

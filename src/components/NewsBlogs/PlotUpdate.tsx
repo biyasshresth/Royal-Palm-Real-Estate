@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import Logo from "../../assets/logo.svg";
 import BestPlot from "../../assets/BestPlot.png";
 import { FiPhone, FiMapPin, FiMap, FiHeart } from "react-icons/fi";
@@ -6,7 +6,9 @@ import { FaHeart } from "react-icons/fa";
 
 const PlotUpdate: FC = () => {
   const [liked, setLiked] = useState<boolean>(false);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}

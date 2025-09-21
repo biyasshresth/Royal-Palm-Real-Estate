@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from "react";
+import React, { useState, FormEvent, useEffect } from "react";
 import {
   FaPhoneAlt,
   FaEnvelope,
@@ -28,6 +28,11 @@ const InfoCard: React.FC<InfoCardProps> = ({ icon, title, children }) => {
 };
 
 const Contact: React.FC = (): React.ReactElement => {
+  // Scroll to top on component mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const tMartEmbedUrl =
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.002563811674!2d85.3609952!3d27.7510504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1bba03125ffb%3A0xa95c87cddfab7291!2sT.%20Mart!5e0!3m2!1sen!2snp!4v1691212345678!5m2!1sen!2snp";
   const tMartDirectLink =
@@ -58,7 +63,7 @@ const Contact: React.FC = (): React.ReactElement => {
       </header>
 
       {/* Main content area (centered container) */}
-      <main className="bg-white  ">
+      <main className="bg-white">
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 overflow-x-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Left column (contact info + form) */}
@@ -198,10 +203,6 @@ const Contact: React.FC = (): React.ReactElement => {
                   Located Map
                 </h3>
 
-                {/* Responsive map container:
-                    - On small screens we use a smaller fixed height
-                    - On larger screens it grows taller
-                */}
                 <div className="w-full rounded-lg overflow-hidden border shadow-lg">
                   <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[600px]">
                     <iframe

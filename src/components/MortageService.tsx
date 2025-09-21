@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Mortage from "../assets/Mortage.png";
 
 const MortageService: React.FC = () => {
+  // Scroll to top on component mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <section className="bg-white min-h-screen flex items-center justify-center px-6">
       <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
