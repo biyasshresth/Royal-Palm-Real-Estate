@@ -11,13 +11,13 @@ import logo from "../assets/logo.svg";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#111827] text-gray-400 py-12 px-6 md:px-2 w-screen">
+    <footer className="bg-[#111827] text-gray-400 py-12 px-6 md:px-2 w-full  ">
       {/* Top Grid */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-10 w-full ">
         {/* Company Info */}
         <div>
           <div className="flex items-center mb-4">
-            <img src={logo} alt="Logo" className="w-10 h-10 object-contain" />
+            <img src={logo} alt="logo" className="w-10 h-10 object-contain" />
             <h2 className="text-white text-xl font-bold p-4">
               Royal Palm Real Estate
             </h2>

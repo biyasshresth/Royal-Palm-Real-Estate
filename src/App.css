@@ -78,7 +78,9 @@
 }
 html,
 body {
-  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+  margin: 0;
 }
 .list-square {
   list-style-type: square;
