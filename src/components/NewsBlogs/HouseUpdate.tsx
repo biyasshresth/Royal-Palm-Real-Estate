@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import cozy from "../../assets/cozy.png";
 import FarmHouse from "../../assets/FarmHouse.png";
 import Picture1 from "../../assets/Picture1.png";
@@ -16,7 +16,9 @@ import { AiFillHeart } from "react-icons/ai";
 
 const HouseUpdate: FC = () => {
   const [liked, setLiked] = useState<boolean>(false);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="min-h-full bg-white">
       {/* Header */}
@@ -163,7 +165,7 @@ const HouseUpdate: FC = () => {
           {/* Choose from here - horizontal scrollable row */}
           <div>
             <h3 className="text-xl font-semibold text-gray-800 mb-4 text-center md:text-left">
-             Related Property!!!
+              Related Property!!!
             </h3>
             <div className="flex gap-10 overflow-x-auto pb-2">
               {/* Farm House */}

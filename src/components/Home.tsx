@@ -95,7 +95,7 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = ({ subtitle }) => {
   return (
     <section className="relative w-full min-h-[300px] flex items-center justify-center text-center text-white bg-gradient-to-r from-[#c0392b] to-[#d35400]">
-      <div className="relative z-10 px-4 p-10 max-w-4xl">
+      <div className="relative z-10 px-4 p-14 max-w-4xl">
         <FadeInOnScroll>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Find Your Dream Home
@@ -171,10 +171,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ subtitle }) => {
     </section>
   );
 };
-
-// ----------------------
-// Property Type + Home Page
-// ----------------------
 interface Property {
   title: string;
   price: string;

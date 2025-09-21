@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Suburban from "../../assets/Suburban.png";
 import Apartment from "../../assets/Apartment.png";
@@ -38,6 +38,11 @@ interface Insight {
 }
 
 const NewsblogsPage: FC = () => {
+  // Scroll to top on component mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const newsArticles: NewsArticle[] = [
     {
       id: 1,
@@ -121,20 +126,18 @@ const NewsblogsPage: FC = () => {
   ];
 
   return (
-    <div className="max-w-full   pb-4">
-      <div className="w-full h-36 sm:h-52 bg-gradient-to-r from-[#c0392b] to-[#d35400] text-white flex flex-col justify-center items-center py-10  ">
-        <div className="mb-4">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-2 text-center">
-            News & Blogs
-          </h1>
-          {/* Typewriter Effect */}
-          <p className="text-lg font-mono"></p>
-        </div>
+    <div className="max-w-full pb-4">
+      <div className="w-full h-36 sm:h-52 bg-gradient-to-r from-[#c0392b] to-[#d35400] text-white flex flex-col justify-center items-center py-10">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-2 text-center">
+          News & Blogs
+        </h1>
+        {/* Typewriter Effect */}
+        <p className="text-lg font-mono"></p>
       </div>
 
-      <div className="items-center w-full  ">
+      <div className="items-center w-full">
         {/* Top News Articles */}
-        <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-8 mb-12 mt-6">
+        <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-8 mb-12 mt-12 md:px-40">
           {newsArticles.map((article) => (
             <a
               href={article.link}
@@ -163,7 +166,7 @@ const NewsblogsPage: FC = () => {
 
         {/* Property Spotlights */}
         <h2 className="text-3xl font-serif mb-6">Property Spotlights</h2>
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        <div className="grid md:grid-cols-3 gap-8 mb-6">
           {propertySpotlights.map((property, idx) => (
             <a
               href={property.link}
