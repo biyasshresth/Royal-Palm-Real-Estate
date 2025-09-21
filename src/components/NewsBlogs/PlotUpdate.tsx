@@ -11,7 +11,7 @@ const PlotUpdate: FC = () => {
     <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="flex justify-center items-center p-6 border-b bg-orange-600">
-        <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white font-times">
+        <h1 className="text-2xl md:text-xl font-extrabold tracking-tight text-white font-times">
           Trending Prices & Prime Locations
         </h1>
       </div>

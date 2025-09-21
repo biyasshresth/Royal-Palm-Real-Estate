@@ -10,7 +10,6 @@ import RealestateStrategy from "../../assets/RealestateStrategy.png";
 import Falts from "../../assets/Flats.png";
 import Roadplot from "../../assets/Roadplot.png";
 
-
 interface NewsArticle {
   id: number;
   title: string;
@@ -42,10 +41,12 @@ const NewsblogsPage: FC = () => {
   const newsArticles: NewsArticle[] = [
     {
       id: 1,
-      title: "Housing Prices Surge in Downtown Areas — What It Means for Buyers",
+      title:
+        "Housing Prices Surge in Downtown Areas — What It Means for Buyers",
       date: "April 2, 2020",
       author: "S2 36hm Dae",
-      description: "Driving river exerted by returns ero imperial area and a soverno",
+      description:
+        "Driving river exerted by returns ero imperial area and a soverno",
       image: Suburban,
       link: "HouseUpdate",
     },
@@ -54,9 +55,10 @@ const NewsblogsPage: FC = () => {
       title: "Top 5 Real Estate Investment Opportunities in Plots 2025",
       date: "March 28, 2003",
       author: "Jaha Smith",
-      description: "Feedis reather emori larnth of the timoe-cho a times Fmnaab",
+      description:
+        "Feedis reather emori larnth of the timoe-cho a times Fmnaab",
       image: BannerLand,
-      link:"PlotUpdate",
+      link: "PlotUpdate",
     },
   ];
 
@@ -119,21 +121,20 @@ const NewsblogsPage: FC = () => {
   ];
 
   return (
-    <div className="max-w-full px-0 pb-4">
-      <div className="w-screen h-44 bg-gradient-to-r from-[#c0392b] to-[#d35400] text-white py-10 px-4">
+    <div className="max-w-full   pb-4">
+      <div className="w-full h-36 sm:h-52 bg-gradient-to-r from-[#c0392b] to-[#d35400] text-white flex flex-col justify-center items-center py-10  ">
         <div className="mb-4">
-          <h1 className="text-5xl font-serif font-bold mb-4 mt-7 text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-2 text-center">
             News & Blogs
           </h1>
           {/* Typewriter Effect */}
-          <p className="text-lg font-mono">
-          </p>
+          <p className="text-lg font-mono"></p>
         </div>
       </div>
 
-      <div className="items-center w-full px-40">
+      <div className="items-center w-full  ">
         {/* Top News Articles */}
-        <div className="grid md:grid-cols-2 gap-8 mb-12 mt-6">
+        <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-8 mb-12 mt-6">
           {newsArticles.map((article) => (
             <a
               href={article.link}
