@@ -1,5 +1,6 @@
 import React, { useState, FormEvent } from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from "react-icons/fa";
+import Footer from "./Footer"; 
 
 interface InfoCardProps {
   icon: React.ReactElement;
@@ -37,12 +38,14 @@ const Contact: React.FC = (): React.ReactElement => {
   return (
     <section className="min-h-screen py-10 px-2 md:px-16 bg-white">
       {/* Page heading */}
-      <div className="text-center mb-10">
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">Get In Touch</h1>
-        <p className="text-gray-600">
-          Ready to start your real estate journey? Contact our expert team today.
-        </p>
-      </div>
+      <div className="text-center mb-10 bg-orange-600 py-10 px-4 rounded-lg w-full">
+  <h1 className="text-4xl font-bold text-white mb-2">Get In Touch</h1>
+  <p className="text-white">
+    Ready to start your real estate journey? Contact our expert team today.
+  </p>
+</div>
+
+      
 
       {/* Two-column layout */}
       <div className="flex flex-col lg:flex-row gap-8">
@@ -57,7 +60,7 @@ const Contact: React.FC = (): React.ReactElement => {
 
           {/* Info cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <InfoCard icon={<FaPhoneAlt />} title="Phone">
+            <InfoCard icon={<FaPhoneAlt />} title="">
               <div>
                 <div className="text-xs text-gray-500 mb-1">Sun–Fri · 10am–5pm</div>
                 <div className="font-medium text-sm text-gray-800">
@@ -66,7 +69,7 @@ const Contact: React.FC = (): React.ReactElement => {
               </div>
             </InfoCard>
 
-            <InfoCard icon={<FaEnvelope />} title="Email">
+            <InfoCard icon={<FaEnvelope />} title="">
               <div>
                 <div className="text-xs text-gray-500 mb-1">Support</div>
                 <div className="font-medium text-sm text-gray-800 break-all">
@@ -75,7 +78,7 @@ const Contact: React.FC = (): React.ReactElement => {
               </div>
             </InfoCard>
 
-            <InfoCard icon={<FaMapMarkerAlt />} title="Office">
+            <InfoCard icon={<FaMapMarkerAlt />} title="">
               <div>
                 <div className="text-xs text-gray-500 mb-1">
                   Chabahil · Chunikhel, Budhanilkantha-13
@@ -90,7 +93,7 @@ const Contact: React.FC = (): React.ReactElement => {
               </div>
             </InfoCard>
 
-            <InfoCard icon={<FaClock />} title="Hours">
+            <InfoCard icon={<FaClock />} title="">
               <div>
                 <div className="text-xs text-gray-500 mb-1">Office hours</div>
                 <div className="font-medium text-sm text-gray-800">Sun – Fri · 10am – 5pm</div>
@@ -162,7 +165,8 @@ const Contact: React.FC = (): React.ReactElement => {
         </div>
 
         {/* Map */}
-        <div className="w-full lg:w-3/5 h-[800px] p-2">
+      
+        <div className="w-full lg:w-3/5 h-[700px] p-2 mt-14">
           <div className="w-full h-full rounded-lg overflow-hidden border shadow-lg">
             <iframe
               title="Chabahil T-Mart location"

@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
         {/* Company Info */}
         <div>
           <div className="flex items-center mb-4">
-            <img src={logo} alt="Logo" className="w-10 h-10 object-contain" />
+            <img src={logo} alt="logo" className="w-10 h-10 object-contain" />
             <h2 className="text-white text-xl font-bold p-4">
               Royal Palm Real Estate
             </h2>

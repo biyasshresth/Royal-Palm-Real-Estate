@@ -70,11 +70,11 @@ const Faq: React.FC = () => {
       {/* ORANGE background layers */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-4 top-4 mx-auto h-[360px] max-w-6xl rounded-3xl border border-orange-200 bg-gradient-to-b from-orange-100 to-orange-200"
+        className="pointer-events-none absolute inset-x-4 top-4 mx-auto h-[1000px] max-w-6xl rounded-3xl border border-orange-200 bg-gradient-to-b from-orange-100 to-orange-300"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-64 rounded-t-[3rem] bg-orange-500"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-16 rounded-t-[3rem] bg-orange-600"
       />
 
       {/* Content wrapper */}
