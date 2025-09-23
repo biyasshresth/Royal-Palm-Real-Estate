@@ -67,7 +67,7 @@ const MarketAnalysis: React.FC = () => {
         ].map(({ icon: Icon, title, color }, idx) => (
           <div
             key={idx}
-            className="bg-white rounded-xl shadow-md flex flex-col items-center p-6 flex-1 relative group overflow-hidden cursor-pointer"
+            className="bg-white rounded-xl shadow-md flex flex-col sm:flex-row md:flex-row  items-center p-6 flex-1 relative group overflow-hidden cursor-pointer"
           >
             <div
               className={`absolute top-0 left-0 w-full h-full bg-gradient-to-tl from-orange-500 to-orange-100 opacity-0 group-hover:opacity-50 transition-opacity duration-300 pointer-events-none rounded-t-xl z-0`}
