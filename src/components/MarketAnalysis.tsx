@@ -48,7 +48,7 @@ const MarketAnalysis: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center px-6 py-12 max-w-7xl mx-auto">
+    <div className="min-h-screen bg-gray-50 flex flex-col items-center px-6 py-12 max-w-full mx-auto">
       {/* Top Section */}
       <div className="text-center max-w-3xl mb-16">
         <p className="text-sm text-gray-500 mb-2 uppercase font-semibold">

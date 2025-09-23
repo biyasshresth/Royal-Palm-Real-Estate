@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo, useState, useEffect, forwardRef } from "react";
 import { FiSearch } from "react-icons/fi";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import logo from "../assets/logo.svg";
@@ -10,7 +10,7 @@ interface FAQ {
   tags: string[];
 }
 
-const Faq: React.FC = () => {
+const Faq = forwardRef<HTMLDivElement>((props, ref) => {
   const [query, setQuery] = useState<string>("");
   const [openId, setOpenId] = useState<number | null>(null);
 
@@ -70,7 +70,10 @@ const Faq: React.FC = () => {
   }, [query, faqs]);
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-orange-50">
+    <section
+      ref={ref}
+      className="relative min-h-screen overflow-hidden bg-orange-50"
+    >
       {/* ORANGE background layers */}
       <div
         aria-hidden="true"
@@ -198,6 +201,6 @@ const Faq: React.FC = () => {
       </div>
     </section>
   );
-};
+});
 
 export default Faq;
