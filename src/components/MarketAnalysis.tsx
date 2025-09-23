@@ -48,19 +48,18 @@ const MarketAnalysis: React.FC = () => {
   };
 
   return (
-    <div className="min-h-full bg-gray-50 flex flex-col items-center px-6 py-12 w-full mx-auto">
-      {/* Top Section */}
+    <div className="min-h-full bg-gray-50 flex flex-col items-center px-6 py-12 sm:py-4 w-full ">
       <div className="text-center max-w-3xl mb-16">
         <p className="text-sm text-gray-500 mb-2 uppercase font-semibold">
           Why cHoose us
         </p>
-        <h2 className="text-2xl sm:text-3xl font-serif font-semibold text-gray-900 mb-1">
+        <h2 className="text-xl lg:text-2xl font-serif font-semibold text-gray-900 mb-1">
           We Have The Most Listings <br /> & Constant Updates.
         </h2>
       </div>
 
       {/* Top cards */}
-      <div className="flex flex-col sm:flex-row gap-6 max-w-4xl mb-28">
+      <div className="flex flex-col sm:flex-row gap-6 w-full mb-28">
         {[
           { icon: FaHome, title: "Buy a new home", color: "blue" },
           { icon: FaEye, title: "See a home", color: "pink" },
@@ -90,9 +89,9 @@ const MarketAnalysis: React.FC = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="flex flex-col lg:flex-row items-start max-w-6xl w-full gap-16">
+      <div className="flex flex-col lg:flex-row items-start  w-full gap-16">
         {/* Left image container */}
-        <div className="flex flex-col w-full lg:w-1/2 space-y-8 ml-20 mb-52">
+        <div className="flex flex-col   w-full lg:w-1/2 space-y-8 mx-auto mb-52">
           <img
             src={FaqPic}
             alt="FAQ Illustration 1"
@@ -106,7 +105,7 @@ const MarketAnalysis: React.FC = () => {
         </div>
 
         {/* Right side */}
-        <div className="flex-1 w-full lg:w-1/2">
+        <div className="flex-1 w-full lg:w-1/2 m-2">
           <p className="text-xs text-gray-400 uppercase font-semibold mb-1">
             FAQS
           </p>
