@@ -80,13 +80,14 @@ const PropMgnt: React.FC = () => {
       </div>
 
       {/* image below the services */}
-      <div className="w-full">
-        <img
-          src={ButtonPic}
-          alt="Button"
-          className="w-1/2 h-72 object-cover mx-auto"
-        />
-      </div>
+      <div className="w-full px-4">
+  <img
+    src={ButtonPic}
+    alt="Button"
+    className="w-full max-w-md h-auto object-contain mx-auto"
+  />
+</div>
+
     </>
   );
 };

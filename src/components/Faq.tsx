@@ -1,9 +1,8 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { FiSearch } from "react-icons/fi";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import logo from "../assets/logo.svg";
 
- 
 interface FAQ {
   id: number;
   q: string;
@@ -14,6 +13,11 @@ interface FAQ {
 const Faq: React.FC = () => {
   const [query, setQuery] = useState<string>("");
   const [openId, setOpenId] = useState<number | null>(null);
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const faqs: FAQ[] = [
     {
@@ -121,7 +125,8 @@ const Faq: React.FC = () => {
                 key={item.id}
                 className="overflow-hidden rounded-xl border border-orange-100 bg-white shadow-sm"
               >
-                <button aria-expanded={true}
+                <button
+                  aria-expanded={isOpen}
                   type="button"
                   onClick={() => setOpenId(isOpen ? null : item.id)}
                   className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"

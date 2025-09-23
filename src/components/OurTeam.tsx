@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import Rajiv from "../assets/Rajiv.jpg";
 import Panda from "../assets/Panda.png";
@@ -69,6 +69,11 @@ const teamMembers: TeamMember[] = [
 ];
 
 const OurTeam: React.FC = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <section className="bg-gray-200 py-16 px-6">
       <div className="max-w-6xl mx-auto text-center">
