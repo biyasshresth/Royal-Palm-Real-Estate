@@ -44,7 +44,7 @@ const Home: React.FC = () => {
   const scrollToTop = () => {
     const start = window.scrollY;
     const distance = -start;
-    const duration = 900; 
+    const duration = 900;
     let startTime: number | null = null;
 
     const animate = (time: number) => {
