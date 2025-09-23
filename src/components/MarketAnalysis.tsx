@@ -67,7 +67,7 @@ const MarketAnalysis: React.FC = () => {
         ].map(({ icon: Icon, title, color }, idx) => (
           <div
             key={idx}
-            className="bg-white rounded-xl shadow-md flex flex-col items-center p-6 flex-1 relative group overflow-hidden cursor-pointer"
+            className="bg-white rounded-xl shadow-md flex flex-col sm:flex-row md:flex-row  items-center p-6 flex-1 relative group overflow-hidden cursor-pointer"
           >
             <div
               className={`absolute top-0 left-0 w-full h-full bg-gradient-to-tl from-orange-500 to-orange-100 opacity-0 group-hover:opacity-50 transition-opacity duration-300 pointer-events-none rounded-t-xl z-0`}
@@ -91,7 +91,7 @@ const MarketAnalysis: React.FC = () => {
       {/* Bottom Section */}
       <div className="flex flex-col lg:flex-row items-start  w-full gap-16">
         {/* Left image container */}
-        <div className="flex flex-col   w-full lg:w-1/2 space-y-8 mx-auto mb-52">
+        <div className="flex flex-col w-full lg:w-1/2 space-y-8 mx-auto mb-24">
           <img
             src={FaqPic}
             alt="FAQ Illustration 1"
