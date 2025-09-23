@@ -89,9 +89,9 @@ const MarketAnalysis: React.FC = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="flex flex-col lg:flex-row items-start  w-full gap-16">
+      <div className="flex flex-col lg:flex-row items-start  w-full gap-5">
         {/* Left image container */}
-        <div className="flex flex-col w-full lg:w-1/2 space-y-8 mx-auto mb-24">
+        <div className="flex flex-col w-full lg:w-1/2 space-y-8 mx-auto mb-14">
           <img
             src={FaqPic}
             alt="FAQ Illustration 1"
