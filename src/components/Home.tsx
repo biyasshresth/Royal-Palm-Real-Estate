@@ -185,7 +185,15 @@ const Home: React.FC = () => {
           type="button"
           onClick={scrollToTop}
           aria-label="Scroll to top"
-          className="fixed bottom-16 right-16 bg-orange-500 text-white p-3 rounded-full shadow-lg hover:bg-orange-600 transition duration-200 z-50"
+          className="
+      fixed 
+      bottom-14 right-10 p-2.5     /*   (mobile) */
+      md:bottom-16 md:right-16 md:p-3.5  /* desktop */
+      bg-orange-500 text-white 
+      rounded-full shadow-lg 
+      hover:bg-orange-600 transition duration-200 
+      z-50
+    "
         >
           <FaArrowUp size={25} />
         </button>

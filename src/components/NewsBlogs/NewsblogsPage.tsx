@@ -78,7 +78,7 @@ const NewsblogsPage: FC = () => {
     },
     {
       title: "Reasonable price plot",
-      location: "New York HY",
+      location: "Kathmandu",
       details: "Road attached · No Disturbance · 3,800 sqft",
       price: "$2,100,000",
       image: PlanningPlot,
@@ -118,7 +118,7 @@ const NewsblogsPage: FC = () => {
     },
     {
       category: "Road side/attached plots",
-      title: "Best Suburbs for Families in New York City",
+      title: "Best Suburbs for Families in Kathmandu City",
       description: "Discover the best neighborhoods for family living.",
       image: Roadplot,
       link: "#",
@@ -127,8 +127,8 @@ const NewsblogsPage: FC = () => {
 
   return (
     <div className="max-w-full pb-4">
-      <div className="w-full h-36 sm:h-52 bg-gradient-to-r from-[#c0392b] to-[#d35400] text-white flex flex-col justify-center items-center py-10">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-2 text-center">
+      <div className="w-full h-36 sm:h-36 bg-gradient-to-r from-[#c0392b] to-[#d35400] text-white flex flex-col justify-center items-center py-10">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-2 text-center shadow-2xl">
           News & Blogs
         </h1>
         {/* Typewriter Effect */}
@@ -166,7 +166,7 @@ const NewsblogsPage: FC = () => {
 
         {/* Property Spotlights */}
         <h2 className="text-3xl font-serif mb-6">Property Spotlights</h2>
-        <div className="grid md:grid-cols-3 gap-8 mb-6">
+        <div className="grid md:grid-cols-3 gap-8 mb-6 m-6">
           {propertySpotlights.map((property, idx) => (
             <a
               href={property.link}
@@ -192,7 +192,7 @@ const NewsblogsPage: FC = () => {
         </div>
 
         {/* Insights */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 m-6">
           {insights.map((insight, idx) => (
             <a
               href={insight.link}
