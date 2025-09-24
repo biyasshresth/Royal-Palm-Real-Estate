@@ -16,9 +16,26 @@ import { AiFillHeart } from "react-icons/ai";
 
 const HouseUpdate: FC = () => {
   const [liked, setLiked] = useState<boolean>(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // --- Rotating Related Property ---
+  const images = [
+    { src: FarmHouse, alt: "Farm House" },
+    { src: Picture1, alt: "Family House" },
+    { src: Apartment, alt: "Apartment" },
+  ];
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 2000); // rotate every 3s
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
     <div className="min-h-full bg-white">
       {/* Header */}
@@ -162,46 +179,31 @@ const HouseUpdate: FC = () => {
             </div>
           </div>
 
-          {/* Choose from here - horizontal scrollable row */}
-          <div>
+          {/* Related Property Section */}
+          <div className="mb-12">
+            {" "}
+            {/* ⬅️ added margin-bottom */}
             <h3 className="text-xl font-semibold text-gray-800 mb-4 text-center md:text-left">
               Related Property!!!
             </h3>
-            <div className="flex gap-10 overflow-x-auto pb-2">
-              {/* Farm House */}
-              <div className="flex-none bg-orange-50 border rounded-lg shadow p-4 flex flex-col items-center gap-3 hover:shadow-lg transition w-44 h-40">
-                <img
-                  src={FarmHouse}
-                  alt="Farm House"
-                  className="w-32 h-20 rounded-lg object-cover"
-                />
-                <h3 className="text-lg font-semibold text-center">
-                  Farm House
-                </h3>
-              </div>
+            <a
+              href="/related-properties" // <-- replace with your route or external link
+              className="block relative w-full md:w-2/3 mx-auto rounded-lg overflow-hidden shadow-lg h-40 mr-60 group"
+            >
+              {/* Rotating Image */}
+              <img
+                src={images[current].src}
+                alt={images[current].alt}
+                className="w-full h-64 object-cover transition-opacity duration-700 group-hover:scale-105"
+              />
 
-              {/* Family House */}
-              <div className="flex-none bg-orange-50 border rounded-lg shadow p-4 flex flex-col items-center gap-3 hover:shadow-lg transition w-44 h-40">
-                <img
-                  src={Picture1}
-                  alt="House"
-                  className="w-32 h-20 rounded-lg object-cover"
-                />
-                <h3 className="text-lg font-semibold text-center">
-                  Family House
-                </h3>
+              {/* Overlay text */}
+              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                <h2 className="text-white text-2xl md:text-3xl font-bold text-center px-4">
+                  Get exciting offers in these property
+                </h2>
               </div>
-
-              {/* Apartment */}
-              <div className="flex-none bg-orange-50 border rounded-lg shadow p-4 flex flex-col items-center gap-3 hover:shadow-lg transition w-36 h-40">
-                <img
-                  src={Apartment}
-                  alt="Apartment"
-                  className="w-16 h-20 rounded-lg object-cover"
-                />
-                <h3 className="text-lg font-semibold text-center">Apartment</h3>
-              </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>

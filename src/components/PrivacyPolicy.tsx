@@ -6,14 +6,13 @@ const PrivacyPolicy: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className="min-h-screen bg-gray-100 p-4 sm:p-6 md:p-8">
+      <div className="max-w-7xl mx-auto bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow-md">
       {/* Title */}
       <h1 className="text-2xl font-bold text-gray-800 text-left">
         PRIVACY POLICY
       </h1>
-      <p className="text-sm text-gray-500 mb-6">Last updated May 07, 2025</p>
-
-      {/* Intro */}
+   {/* Intro */}
       <p className="text-gray-800 mb-3 text-left text-sm">
         This Privacy Notice for Royal Palm Real Estate Pvt. Ltd., describes how
         and why we might access, collect, store, use, and share (“process") your
@@ -559,6 +558,8 @@ const PrivacyPolicy: React.FC = () => {
         </section>
       </div>
     </div>
+     </div>
+       
   );
 };
 

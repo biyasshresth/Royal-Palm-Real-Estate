@@ -84,7 +84,7 @@ const Partners: React.FC = () => {
         </div>
 
         {/* Right Side */}
-        <div className="w-full md:w-1/2 flex flex-col items-center gap-8 sm:gap-16 mt-10 md:mt-0">
+        <div className="w-full md:w-1/2 flex flex-col items-center gap-16 sm:gap-16 mt-20 md:mt-16">
           <img
             src={logo}
             alt="Logo"

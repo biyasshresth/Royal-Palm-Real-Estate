@@ -12,8 +12,10 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ isLoggedIn, setIsLoggedIn }) => {
   const navigate = useNavigate();
   const location = useLocation();
+
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [searchOpen, setSearchOpen] = useState<boolean>(false);
 
   const navItems = isLoggedIn
     ? [
@@ -33,14 +35,28 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn, setIsLoggedIn }) => {
       navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
       setSearchQuery("");
       setMenuOpen(false);
+      setSearchOpen(false);
     }
   };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
+
+  // Auto-close search input if nothing typed for 5 seconds
+  useEffect(() => {
+    if (searchOpen && searchQuery.trim() === "") {
+      const timer = setTimeout(() => {
+        setSearchOpen(false);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [searchOpen, searchQuery]);
+
+  // Close menus/search on route change
   useEffect(() => {
     setMenuOpen(false);
+    setSearchOpen(false);
   }, [location.pathname]);
 
   return (
@@ -51,46 +67,65 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn, setIsLoggedIn }) => {
           className="flex items-center space-x-2 cursor-pointer"
           onClick={() => navigate("/")}
         >
-          <img src={logo} alt="Logo" className="w-16 h-w-16 object-contain" />
+          <img src={logo} alt="Logo" className="w-16 h-16 object-contain" />
           <h1 className="text-2xl font-bold text-black font-serif">
             Real Estate Palm
           </h1>
         </div>
 
-        {/* Desktop Search */}
-        <div className="hidden md:flex mx-auto w-full max-w-xs h-8">
-          <input
-            type="text"
-            placeholder="Search properties..."
-            value={searchQuery}
-            onChange={handleInputChange}
-            className="flex-1 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-orange-500"
-          />
-          <button
-            type="button"
-            onClick={handleSearch}
-            aria-label="Search"
-            className="bg-orange-600 text-white px-4 py-2 rounded-r-md hover:bg-orange-500 transition"
-          >
-            <HiSearch className="w-5 h-5" />
-          </button>
-        </div>
-
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation & Search */}
         <div className="hidden md:flex items-center space-x-6">
-          {navItems.map((item) => (
-            <div
-              key={item.path}
-              onClick={() => navigate(item.path)}
-              className={`cursor-pointer text-lg font-medium transition-colors duration-200 ${
-                location.pathname === item.path
-                  ? "text-orange-600"
-                  : "text-gray-700 hover:text-orange-500"
-              }`}
-            >
-              {item.label}
+          {navItems.map((item, index) => (
+            <div key={item.path} className="flex items-center space-x-2">
+              {/* Insert search icon just before Home button */}
+              {index === 0 && (
+                <div>
+                  {!searchOpen ? (
+                    <button
+                      type="button"
+                      onClick={() => setSearchOpen(true)}
+                      className="flex items-center justify-center w-10 h-10 rounded-full bg-orange-500 text-white hover:bg-orange-600 transition"
+                      aria-label="Open search"
+                    >
+                      <HiSearch className="w-5 h-5" />
+                    </button>
+                  ) : (
+                    <div className="flex w-full">
+                      <input
+                        type="text"
+                        placeholder="Search properties..."
+                        value={searchQuery}
+                        onChange={handleInputChange}
+                        className="flex-1 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        autoFocus
+                      />
+                      <button
+                        type="button"
+                        onClick={handleSearch}
+                        aria-label="Search"
+                        className="bg-orange-600 text-white px-4 py-2 rounded-r-md hover:bg-orange-500 transition"
+                      >
+                        <HiSearch className="w-5 h-5" />
+                      </button>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Navigation button */}
+              <div
+                onClick={() => navigate(item.path)}
+                className={`cursor-pointer text-lg font-medium transition-colors duration-200 ${
+                  location.pathname === item.path
+                    ? "text-orange-600"
+                    : "text-gray-700 hover:text-orange-500"
+                }`}
+              >
+                {item.label}
+              </div>
             </div>
           ))}
+
           {!isLoggedIn ? (
             <button
               type="button"
@@ -131,21 +166,35 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn, setIsLoggedIn }) => {
         <div className="md:hidden mt-4 space-y-4 px-2 pb-4">
           {/* Mobile Search */}
           <div className="flex items-center space-x-2">
-            <input
-              type="text"
-              placeholder="Search properties..."
-              value={searchQuery}
-              onChange={handleInputChange}
-              className="flex-1 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-orange-500"
-            />
-            <button
-              type="button"
-              onClick={handleSearch}
-              aria-label="Search"
-              className="bg-orange-600 text-white px-4 py-2 rounded-r-md hover:bg-orange-500 transition"
-            >
-              <HiSearch className="w-5 h-5" />
-            </button>
+            {!searchOpen ? (
+              <button
+                type="button"
+                onClick={() => setSearchOpen(true)}
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-orange-500 text-white hover:bg-orange-600 transition"
+                aria-label="Open search"
+              >
+                <HiSearch className="w-5 h-5" />
+              </button>
+            ) : (
+              <div className="flex w-full">
+                <input
+                  type="text"
+                  placeholder="Search properties..."
+                  value={searchQuery}
+                  onChange={handleInputChange}
+                  className="flex-1 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  autoFocus
+                />
+                <button
+                  type="button"
+                  onClick={handleSearch}
+                  aria-label="Search"
+                  className="bg-orange-600 text-white px-4 py-2 rounded-r-md hover:bg-orange-500 transition"
+                >
+                  <HiSearch className="w-5 h-5" />
+                </button>
+              </div>
+            )}
           </div>
 
           {/* Mobile Navigation */}
@@ -155,6 +204,7 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn, setIsLoggedIn }) => {
               onClick={() => {
                 navigate(item.path);
                 setMenuOpen(false);
+                setSearchOpen(false);
               }}
               className={`block cursor-pointer text-lg font-medium transition-colors duration-200 ${
                 location.pathname === item.path
@@ -172,6 +222,7 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn, setIsLoggedIn }) => {
               onClick={() => {
                 navigate("/login");
                 setMenuOpen(false);
+                setSearchOpen(false);
               }}
               className="w-full border border-orange-600 text-orange-600 px-4 py-2 rounded-md font-semibold hover:bg-orange-100 transition"
             >
@@ -183,6 +234,7 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn, setIsLoggedIn }) => {
               onClick={() => {
                 setIsLoggedIn(false);
                 setMenuOpen(false);
+                setSearchOpen(false);
               }}
               className="w-full border border-red-600 text-red-600 px-4 py-2 rounded-md font-semibold hover:bg-red-100 transition"
             >
