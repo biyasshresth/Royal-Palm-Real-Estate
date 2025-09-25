@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ForSale from "../assets/ForSale.png";
 
 const Sell: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <section className="relative bg-white min-h-screen flex items-center justify-center px-10">
       {/* Content */}
