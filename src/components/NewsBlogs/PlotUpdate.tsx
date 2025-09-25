@@ -137,7 +137,7 @@ const PlotUpdate: FC = () => {
               <div className="font-semibold">Road Type:</div>
               <div>Gravel</div>
               <div className="font-semibold">Land Size (Aana/Dhur):</div>
-              <div>0-4-2-0</div>
+              <div>0-4-3-2</div>
             </div>
           </div>
 

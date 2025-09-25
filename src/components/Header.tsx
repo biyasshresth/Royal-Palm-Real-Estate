@@ -53,7 +53,7 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn, setIsLoggedIn }) => {
     }
   }, [searchOpen, searchQuery]);
 
-  // Close menus/search on route change
+  // search on route change
   useEffect(() => {
     setMenuOpen(false);
     setSearchOpen(false);
@@ -73,11 +73,9 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn, setIsLoggedIn }) => {
           </h1>
         </div>
 
-        {/* Desktop Navigation & Search */}
         <div className="hidden md:flex items-center space-x-6">
           {navItems.map((item, index) => (
             <div key={item.path} className="flex items-center space-x-2">
-              {/* Insert search icon just before Home button */}
               {index === 0 && (
                 <div>
                   {!searchOpen ? (
@@ -96,7 +94,7 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn, setIsLoggedIn }) => {
                         placeholder="Search properties..."
                         value={searchQuery}
                         onChange={handleInputChange}
-                        className="flex-1 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        className="flex-1 w-3/4 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-3 focus:ring-orange-500"
                         autoFocus
                       />
                       <button

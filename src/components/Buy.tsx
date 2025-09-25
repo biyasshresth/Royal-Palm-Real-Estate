@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LandMark from "../assets/LandMark.png";
 
 const Buy: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <section className="bg-[#f02b5c] min-h-screen flex items-center justify-center px-6">
       <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
