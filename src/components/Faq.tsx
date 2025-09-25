@@ -2,7 +2,44 @@ import React, { useMemo, useState, useEffect, forwardRef } from "react";
 import { FiSearch } from "react-icons/fi";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import logo from "../assets/logo.svg";
-
+const faqs: FAQ[] = [
+  {
+    id: 1,
+    q: "What are your business hours?",
+    a: "We’re open Sunday–Friday, 10:00 AM – 5:00 PM. Site visits can be scheduled between 10:00 AM – 5:00 PM. For weekend launches or handovers, we announce extended hours in advance.",
+    tags: ["Site Visits", "Sales Desk", "Handover"],
+  },
+  {
+    id: 2,
+    q: "Can I track my order?",
+    a: "Yes. If you booked a plot/unit, use your booking ID to track milestones like document verification, payment schedule, and handover readiness from your dashboard.",
+    tags: ["Booking", "Payment Plan", "Milestones"],
+  },
+  {
+    id: 3,
+    q: "How do I reset my password?",
+    a: "Click “Forgot Password” on the login page, enter your registered email/phone, and follow the link/OTP we send. For account security, the link expires in 15 minutes.",
+    tags: ["Account", "Security", "Support"],
+  },
+  {
+    id: 4,
+    q: "Do you offer international shipping?",
+    a: "Not applicable for properties—however, we support international buyers with remote booking, KYC, and video site tours. All documents are shared digitally and couriered on request.",
+    tags: ["NRI/International", "KYC", "Remote Tour"],
+  },
+  {
+    id: 5,
+    q: "What documents are required to buy land?",
+    a: "Typically: Title Deed, Parcel Map, Tax Clearance, Seller’s ID, and a No-Encumbrance Certificate. Local requirements may add revenue records and a verified sale agreement.",
+    tags: ["Title Deed", "Tax Clearance", "NEC"],
+  },
+  {
+    id: 6,
+    q: "Are utilities and road access available?",
+    a: "Yes on our serviced plots: graded road access, marked plot boundaries, drainage, and utility points as per the project brochure. Verify availability phase-wise in your dashboard.",
+    tags: ["Road Access", "Utilities", "Serviced Plots"],
+  },
+];
 interface FAQ {
   id: number;
   q: string;
@@ -18,45 +55,6 @@ const Faq = forwardRef<HTMLDivElement>((props, ref) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const faqs: FAQ[] = [
-    {
-      id: 1,
-      q: "What are your business hours?",
-      a: "We’re open Sunday–Friday, 10:00 AM – 5:00 PM. Site visits can be scheduled between 10:00 AM – 5:00 PM. For weekend launches or handovers, we announce extended hours in advance.",
-      tags: ["Site Visits", "Sales Desk", "Handover"],
-    },
-    {
-      id: 2,
-      q: "Can I track my order?",
-      a: "Yes. If you booked a plot/unit, use your booking ID to track milestones like document verification, payment schedule, and handover readiness from your dashboard.",
-      tags: ["Booking", "Payment Plan", "Milestones"],
-    },
-    {
-      id: 3,
-      q: "How do I reset my password?",
-      a: "Click “Forgot Password” on the login page, enter your registered email/phone, and follow the link/OTP we send. For account security, the link expires in 15 minutes.",
-      tags: ["Account", "Security", "Support"],
-    },
-    {
-      id: 4,
-      q: "Do you offer international shipping?",
-      a: "Not applicable for properties—however, we support international buyers with remote booking, KYC, and video site tours. All documents are shared digitally and couriered on request.",
-      tags: ["NRI/International", "KYC", "Remote Tour"],
-    },
-    {
-      id: 5,
-      q: "What documents are required to buy land?",
-      a: "Typically: Title Deed, Parcel Map, Tax Clearance, Seller’s ID, and a No-Encumbrance Certificate. Local requirements may add revenue records and a verified sale agreement.",
-      tags: ["Title Deed", "Tax Clearance", "NEC"],
-    },
-    {
-      id: 6,
-      q: "Are utilities and road access available?",
-      a: "Yes on our serviced plots: graded road access, marked plot boundaries, drainage, and utility points as per the project brochure. Verify availability phase-wise in your dashboard.",
-      tags: ["Road Access", "Utilities", "Serviced Plots"],
-    },
-  ];
 
   const filteredFaqs = useMemo(() => {
     const ql = query.trim().toLowerCase();
