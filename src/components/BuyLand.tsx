@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import Plotting1 from "../assets/Plot1.png";
-import Plotting2 from "../assets/Plot2.png";
-import Plotting3 from "../assets/Plot3.png";
+import Plotting1 from "../assets/Plotting1.png";
+import Plotting2 from "../assets/Plotting2.png";
+import Plotting3 from "../assets/Plotting3.png";
 
 const images = [Plotting1, Plotting2, Plotting3];
 

@@ -54,13 +54,13 @@ const App: React.FC = () => {
             <Route path="/Faq" element={<Faq />} />
             <Route path="/our-team" element={<OurTeam />} />
             <Route path="/PartnerDiscrip" element={<PartnerDiscrip />} />
-            <Route path="/BuyPropertyOption" element={<BuyPropertyOption />} />
             <Route path="/Sell" element={<Sell />} />
             <Route path="/PropertySales" element={<PropertySales />} />
             <Route path="/MarketAnalysis" element={<MarketAnalysis />} />
             <Route path="/MortageService" element={<MortageService />} />
             <Route path="/PropMgnt" element={<PropMgnt />} />
             <Route path="/InvestmentConsult" element={<InvestmentConsult />} />
+            <Route path="/BuyPropertyOption" element={<BuyPropertyOption />} />
             <Route path="/BuyLand" element={<BuyLand />} />
           </Routes>
         </main>
