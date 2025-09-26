@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
           <h3 className="text-white font-bold text-lg mb-4">Quick Links</h3>
           <ul className="space-y-3">
             <li>
-              <Link to="/Buy" className="hover:text-white hover:underline">Buy Property</Link>
+              <Link to="/BuyPropertyOption" className="hover:text-white hover:underline">Buy Property</Link>
             </li>
             <li>
               <Link to="/Sell" className="hover:text-white hover:underline">Sale Property</Link>

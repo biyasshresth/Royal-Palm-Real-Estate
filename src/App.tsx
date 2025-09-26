@@ -18,13 +18,14 @@ import Contact from "./components/Contact";
 import PlotUpdate from "./components/NewsBlogs/PlotUpdate";
 import OurTeam from "./components/OurTeam";
 import PartnerDiscrip from "./components/PartnersDiscrip";
-import Buy from "./components/Buy";
 import Sell from "./components/Sell";
 import PropertySales from "./components/PropertySales";
 import MarketAnalysis from "./components/MarketAnalysis";
 import MortageService from "./components/MortageService";
 import PropMgnt from "./components/PropMgnt";
 import InvestmentConsult from "./components/InvestmentConsult";
+import BuyPropertyOption from "./components/BuyPropertyOption";
+import BuyLand from "./components/BuyLand";
 
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -53,13 +54,14 @@ const App: React.FC = () => {
             <Route path="/Faq" element={<Faq />} />
             <Route path="/our-team" element={<OurTeam />} />
             <Route path="/PartnerDiscrip" element={<PartnerDiscrip />} />
-            <Route path="/Buy" element={<Buy />} />
             <Route path="/Sell" element={<Sell />} />
             <Route path="/PropertySales" element={<PropertySales />} />
             <Route path="/MarketAnalysis" element={<MarketAnalysis />} />
             <Route path="/MortageService" element={<MortageService />} />
             <Route path="/PropMgnt" element={<PropMgnt />} />
             <Route path="/InvestmentConsult" element={<InvestmentConsult />} />
+            <Route path="/BuyPropertyOption" element={<BuyPropertyOption />} />
+            <Route path="/BuyLand" element={<BuyLand />} />
           </Routes>
         </main>
         <Footer />
