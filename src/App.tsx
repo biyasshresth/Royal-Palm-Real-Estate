@@ -25,6 +25,7 @@ import MortageService from "./components/MortageService";
 import PropMgnt from "./components/PropMgnt";
 import InvestmentConsult from "./components/InvestmentConsult";
 import BuyPropertyOption from "./components/BuyPropertyOption";
+import BuyLand from "./components/BuyLand";
 
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -60,6 +61,7 @@ const App: React.FC = () => {
             <Route path="/MortageService" element={<MortageService />} />
             <Route path="/PropMgnt" element={<PropMgnt />} />
             <Route path="/InvestmentConsult" element={<InvestmentConsult />} />
+            <Route path="/BuyLand" element={<BuyLand />} />
           </Routes>
         </main>
         <Footer />
