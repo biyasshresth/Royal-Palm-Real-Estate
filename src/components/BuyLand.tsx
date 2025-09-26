@@ -68,7 +68,7 @@ const BuyLand: React.FC = () => {
         {/* Search bar */}
         <div className="flex justify-center my-4">
           <form
-            className="relative w-full max-w-md"  
+            className="relative w-full max-w-md"
             onSubmit={(e) => e.preventDefault()}
           >
             <input
