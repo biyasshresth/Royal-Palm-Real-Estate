@@ -1,9 +1,11 @@
 import React, { useEffect, FC, useState } from "react";
 import AboutLand from "../assets/AboutLand.png";
-import { FaHome, FaBuilding, FaMapMarkedAlt, FaTimes } from "react-icons/fa";
+import { FaBookOpen } from "react-icons/fa";
 import { TbTargetArrow } from "react-icons/tb";
 import { BiSolidBinoculars } from "react-icons/bi";
-import { FaBookOpen } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
+import { motion, easeOut } from "framer-motion";
+
 interface ModalProps {
   title: string;
   points: string[];
@@ -12,19 +14,11 @@ interface ModalProps {
   onClose: () => void;
 }
 
-const InfoModal: FC<ModalProps> = ({
-  title,
-  points,
-  icon,
-  isOpen,
-  onClose,
-}) => {
+const InfoModal: FC<ModalProps> = ({ title, points, icon, isOpen, onClose }) => {
   return (
     <div
       className={`fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ${
-        isOpen
-          ? "opacity-100 pointer-events-auto"
-          : "opacity-0 pointer-events-none"
+        isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
       }`}
     >
       <div
@@ -60,10 +54,26 @@ const AboutUs: FC = () => {
 
   const [openModal, setOpenModal] = useState<string | null>(null);
 
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.15 } },
+  };
+
+  const fadeInVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
+  };
+
   return (
     <div className="min-h-screen bg-white text-gray-800">
       {/* Hero Section */}
-      <div className="relative w-full h-[400px] md:h-[300px] bg-black">
+      <motion.div
+        className="relative w-full h-[400px] md:h-[300px] bg-black"
+        variants={fadeInVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
         <img
           src={AboutLand}
           alt="Prime Location Property"
@@ -74,34 +84,43 @@ const AboutUs: FC = () => {
             Welcome to Palm Real Estate
           </h1>
         </div>
-      </div>
+      </motion.div>
 
       {/* Cards Section */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div
+      <motion.div
+        className="max-w-7xl mx-auto px-6 md:px-12 py-16 grid grid-cols-1 md:grid-cols-3 gap-6"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <motion.div
           className="cursor-pointer border rounded-lg shadow-lg p-6 flex items-center gap-3 hover:bg-gray-100 transition"
           onClick={() => setOpenModal("mission")}
+          variants={fadeInVariants}
         >
           <TbTargetArrow className="text-orange-500 text-3xl" />
           <h2 className="text-xl font-semibold">Our Mission</h2>
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
           className="cursor-pointer border rounded-lg shadow-lg p-6 flex items-center gap-3 hover:bg-gray-100 transition"
           onClick={() => setOpenModal("story")}
+          variants={fadeInVariants}
         >
           <FaBookOpen className="text-orange-500 text-3xl" />
           <h2 className="text-xl font-semibold">Our Story</h2>
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
           className="cursor-pointer border rounded-lg shadow-lg p-6 flex items-center gap-3 hover:bg-gray-100 transition"
           onClick={() => setOpenModal("vision")}
+          variants={fadeInVariants}
         >
           <BiSolidBinoculars className="text-orange-500 text-3xl" />
           <h2 className="text-xl font-semibold">Our Vision</h2>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Modals */}
       <InfoModal
@@ -141,7 +160,13 @@ const AboutUs: FC = () => {
       />
 
       {/* CTA */}
-      <div className="bg-orange-500 text-white py-12 text-center">
+      <motion.div
+        className="bg-orange-500 text-white py-12 text-center"
+        variants={fadeInVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
         <h2 className="text-3xl font-bold mb-4">
           Find Your Dream Property Today
         </h2>
@@ -154,7 +179,7 @@ const AboutUs: FC = () => {
         >
           Contact Us
         </a>
-      </div>
+      </motion.div>
     </div>
   );
 };

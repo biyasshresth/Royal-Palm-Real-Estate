@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";  
 import Plotting1 from "../assets/Plotting1.png";
 import Plotting2 from "../assets/Plotting2.png";
 import Plotting3 from "../assets/Plotting3.png";
@@ -13,7 +14,6 @@ const BuyLand: React.FC = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Start automatic rotation every 2s
   useEffect(() => {
     if (intervalRef.current) {
       window.clearInterval(intervalRef.current);
@@ -29,7 +29,6 @@ const BuyLand: React.FC = () => {
     };
   }, []);
 
-  // When user selects an image, reset rotation timer so it doesn't immediately jump
   const handleSelectImage = (index: number) => {
     setCurrent(index);
     if (intervalRef.current) {
@@ -63,7 +62,12 @@ const BuyLand: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 text-slate-800">
+    <motion.div
+      className="min-h-screen bg-gray-50 text-slate-800"
+      initial={{ opacity: 0, y: 20 }}          
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
       <div className="max-w-6xl mx-auto px-6 py-8">
         {/* Search bar */}
         <div className="flex justify-center my-4">
@@ -76,7 +80,6 @@ const BuyLand: React.FC = () => {
               placeholder="Search for properties ID, location, type..."
               className="w-full border border-slate-300 rounded-full py-3 pl-12 pr-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-300"
             />
-            {/* Search Icon */}
             <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
               🔍
             </span>
@@ -89,14 +92,13 @@ const BuyLand: React.FC = () => {
           </form>
         </div>
 
-        {/* Main grid: Left (images + details) and Right (contact card) */}
+        {/* Main grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* LEFT: Images & details (span 2 columns on large screens) */}
+          {/* Images & details */}
           <div className="lg:col-span-2 space-y-6">
             {/* Large image area */}
             <div className="bg-white rounded-md shadow-md p-6">
               <div className="relative w-full h-[460px] md:h-[520px] overflow-hidden rounded-md">
-                {/* stacked images with fade */}
                 {images.map((src, idx) => (
                   <img
                     key={idx}
@@ -182,9 +184,9 @@ const BuyLand: React.FC = () => {
 
                 <button
                   onClick={handleDownloadPdf}
-                  className="border border-slate-300 px-4 py-2 text-sm  hover:bg-slate-50"
+                  className="border border-slate-300 px-4 py-2 text-sm hover:bg-slate-50"
                 >
-                  <span>⬇️</span> Download PDF
+                  <span>⬇️</span> Download Hardcopy
                 </button>
 
                 <button className="ml-auto text-red-500 hover:underline">
@@ -194,7 +196,7 @@ const BuyLand: React.FC = () => {
 
               <hr className="my-6 border-dashed" />
 
-              {/* Meta icons - Type and Area */}
+              {/* Meta icons */}
               <div className="flex gap-6 items-center">
                 <div className="flex items-center gap-3">
                   <div className="bg-slate-100 p-3 rounded-md">
@@ -221,17 +223,17 @@ const BuyLand: React.FC = () => {
               <div className="mt-6">
                 <h3 className="text-xl font-semibold">Property Details</h3>
                 <p className="mt-3 text-sm text-slate-700 leading-relaxed">
-                  Lalpurja Nepal brings you 10-11 plots total of 48 aana with
-                  plots of 0-4-2-2 + 0-5-0-1 and also 8 aana at price of only
-                  17.5 lakhs per aana. Through location is Changunarayan
+                  Royal Palm Real Estate brings you 10-11 plots total of 48 aana
+                  with plots of 0-4-2-2 + 0-5-0-1 and also 8 aana at price of
+                  only 17.5 lakhs per aana. Through location is Changunarayan
                   Bhaktapur it is almost close to Kathmandu District, which is
                   advantageous to the buyer. Purchasing at Bhaktapur price and
                   enjoying Kathmandu facilities. So hurry up and book today.
                 </p>
 
                 <p className="mt-3 text-sm text-slate-700 leading-relaxed">
-                  Lalpurja Nepal also provides home loan services at a very low
-                  interest rate.
+                  Royal Palm Real Estate is a real estate company that also
+                  provides home loan services at a very low interest rate.
                 </p>
               </div>
             </div>
@@ -257,7 +259,7 @@ const BuyLand: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <p className="text-sm text-slate-00">Pricing:</p>
+                  <p className="text-sm text-slate-700">Pricing:</p>
                   <p className="font-medium">17 Lakh 50 Thousand Per Aana</p>
                 </div>
                 <div className="space-y-2">
@@ -276,7 +278,6 @@ const BuyLand: React.FC = () => {
           <aside className="space-y-6">
             <div className="bg-white rounded-md shadow-md p-6">
               <div className="flex items-center gap-4">
-                {/* Agent avatar fallback (initials) */}
                 <div className="h-16 w-16 rounded-md bg-slate-800 text-white flex items-center justify-center font-semibold">
                   ST
                 </div>
@@ -286,14 +287,14 @@ const BuyLand: React.FC = () => {
                     📞 +977 9851342035
                   </p>
                   <p className="text-sm text-slate-500 mt-1">
-                    ✉️ sales@lalpurjanepal.com.np
+                    ✉️ sales@RoyalPalmaNepal.com.np
                   </p>
                 </div>
               </div>
 
               <hr className="my-4" />
 
-              <h4 className="font-semibold">Contact For Enquiry</h4>
+              <h4 className="font-semibold">Contact With Seller</h4>
 
               <form onSubmit={handleSubmitContact} className="mt-3 space-y-3">
                 <div>
@@ -351,7 +352,7 @@ const BuyLand: React.FC = () => {
               </form>
             </div>
 
-            {/* WhatsApp floating or small help card */}
+            {/* WhatsApp card */}
             <div className="bg-white rounded-md shadow-sm p-4">
               <p className="text-sm text-slate-600">
                 Need immediate help? Click to chat on WhatsApp
@@ -370,7 +371,7 @@ const BuyLand: React.FC = () => {
           </aside>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

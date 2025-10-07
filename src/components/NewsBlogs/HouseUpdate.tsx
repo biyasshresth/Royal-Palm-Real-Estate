@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect } from "react";
+import { motion } from "framer-motion";  
 import cozy from "../../assets/cozy.png";
 import FarmHouse from "../../assets/FarmHouse.png";
 import Picture1 from "../../assets/Picture1.png";
@@ -21,7 +22,6 @@ const HouseUpdate: FC = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // --- Rotating Related Property ---
   const images = [
     { src: FarmHouse, alt: "Farm House" },
     { src: Picture1, alt: "Family House" },
@@ -32,12 +32,17 @@ const HouseUpdate: FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
-    }, 2000); // rotate every 3s
+    }, 2000); // rotate every 2s
     return () => clearInterval(interval);
   }, [images.length]);
 
   return (
-    <div className="min-h-full bg-white">
+    <motion.div
+      className="min-h-full bg-white overflow-x-hidden"
+      initial={{ opacity: 0, y: 20 }}          
+      animate={{ opacity: 1, y: 0 }}           
+      transition={{ duration: 0.8, ease: "easeOut" }}  
+    >
       {/* Header */}
       <div className="flex justify-center items-center p-6 border-b bg-orange-600 mb-4 w-full">
         <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white font-times">
@@ -181,14 +186,12 @@ const HouseUpdate: FC = () => {
 
           {/* Related Property Section */}
           <div className="mb-12">
-            {" "}
-            {/* ⬅️ added margin-bottom */}
             <h3 className="text-xl font-semibold text-gray-800 mb-4 text-center md:text-left">
               Related Property!!!
             </h3>
             <a
-              href="/related-properties" // <-- replace with your route or external link
-              className="block relative w-full md:w-2/3 mx-auto rounded-lg overflow-hidden shadow-lg h-40 mr-60 group"
+              href="/related-properties"
+              className="block relative w-full md:w-2/3 mx-auto rounded-lg overflow-hidden shadow-lg h-40 group"
             >
               {/* Rotating Image */}
               <img
@@ -207,7 +210,7 @@ const HouseUpdate: FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

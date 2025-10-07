@@ -1,16 +1,17 @@
 import React, { useEffect } from "react";
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { easeOut } from "framer-motion";
 import Rajiv from "../assets/Rajiv.jpg";
 import Panda from "../assets/Panda.png";
 import Anil from "../assets/Anil.png";
 import Biyas from "../assets/biyas.jpg";
 
-// Define a type for team members
 interface TeamMember {
   name: string;
   role: string;
   image: string;
-  description?: string;
+  description: string;
 }
 
 const teamMembers: TeamMember[] = [
@@ -32,13 +33,15 @@ const teamMembers: TeamMember[] = [
     name: "Asmit Khanal",
     role: "Web Developer",
     image: "https://via.placeholder.com/150",
+    description:
+      "Asmit Khanal builds and maintains dynamic websites and web applications. He ensures smooth user experiences and responsive designs, integrating backend services as needed.",
   },
   {
     name: "Rajiv Shrestha",
     role: "Flutter Developer",
     image: Rajiv,
     description:
-      "Rajiv Shrestha is a experienced Flutter developer in our company, who builds cross-platform mobile applications (iOS & Android) using Flutter, which is a UI toolkit by Google. He use Dart programming language.",
+      "Rajiv Shrestha is a experienced Flutter developer in our company, who builds cross-platform mobile applications (iOS & Android) using Flutter, which is a UI toolkit by Google. He uses Dart programming language.",
   },
   {
     name: "Sanjeet Shrestha",
@@ -51,17 +54,19 @@ const teamMembers: TeamMember[] = [
     name: "Sandesh Shrestha",
     role: "Web Designer",
     image: "https://via.placeholder.com/150",
+    description:
+      "Sandesh Shrestha designs user-friendly web interfaces with a focus on aesthetics and usability. He transforms concepts into visually appealing and functional designs.",
   },
   {
     name: "Krity Bade",
-    role: "Reactjs FrontEnd Developer",
+    role: "ReactJS FrontEnd Developer",
     image: Panda,
     description:
       "Krity Bade is ReactJS Frontend Developer who builds the user interface (UI) and client-side logic of web applications using ReactJS, a popular JavaScript library for building interactive UIs.",
   },
   {
     name: "Biyas Shrestha",
-    role: "Reactjs FrontEnd Developer",
+    role: "ReactJS FrontEnd Developer",
     image: Biyas,
     description:
       "Biyas Shrestha is ReactJS Frontend Developer who builds the user interface (UI) and client-side logic of web applications using ReactJS, a popular JavaScript library for building interactive UIs.",
@@ -69,25 +74,42 @@ const teamMembers: TeamMember[] = [
 ];
 
 const OurTeam: React.FC = () => {
-  // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.15 },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
+  };
+
   return (
     <section className="bg-gray-200 py-16 px-6">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-orange-600 mb-12">
+        <h2 className="text-4xl font-bold text-gray-800 mb-12">
           Meet Our Team
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {teamMembers.map((member, index) => (
-            <div
+            <motion.div
               key={index}
               className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center"
+              variants={cardVariants}
             >
-              {/* Image */}
               <div className="w-28 h-28 mb-4">
                 <img
                   src={member.image}
@@ -96,14 +118,10 @@ const OurTeam: React.FC = () => {
                 />
               </div>
 
-              {/* Name */}
               <h3 className="text-lg font-semibold">{member.name}</h3>
-              {member.description && (
-                <p className="text-gray-700">{member.description}</p>
-              )}
-              <p className="font-medium text-gray-800">{member.role}</p>
+              <p className="text-gray-700 mt-2">{member.description}</p>
+              <p className="font-medium text-gray-800 mt-1">{member.role}</p>
 
-              {/* Social Icons */}
               <div className="flex space-x-4 mt-4 text-gray-600">
                 <a href="#" aria-label="Facebook" title="Facebook">
                   <FaFacebookF className="hover:text-orange-500 transition" />
@@ -115,9 +133,9 @@ const OurTeam: React.FC = () => {
                   <FaInstagram className="hover:text-orange-500 transition" />
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

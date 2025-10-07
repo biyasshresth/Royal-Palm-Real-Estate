@@ -38,7 +38,6 @@ interface Insight {
 }
 
 const NewsblogsPage: FC = () => {
-  // Scroll to top on component mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -127,95 +126,93 @@ const NewsblogsPage: FC = () => {
 
   return (
     <div className="max-w-full pb-4">
+      {/* Header Section */}
       <div className="w-full h-36 sm:h-36 bg-gradient-to-r from-[#c0392b] to-[#d35400] text-white flex flex-col justify-center items-center py-10">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-2 text-center shadow-2xl">
-          News & Blogs
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold mb-2 text-center shadow-2xl">
+          News & Updates
         </h1>
-        {/* Typewriter Effect */}
         <p className="text-lg font-mono"></p>
       </div>
 
-      <div className="items-center w-full">
-        {/* Top News Articles */}
-        <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-8 mb-12 mt-12 md:px-40">
-          {newsArticles.map((article) => (
-            <a
-              href={article.link}
-              key={article.id}
-              className="block border rounded-lg overflow-hidden shadow-xl hover:border-gray-300 transition"
-            >
-              <img
-                src={article.image}
-                alt={article.title}
-                className="w-full h-64 object-cover"
-              />
-              <div className="p-6">
-                <h2 className="text-xl font-semibold mb-2">{article.title}</h2>
-                <p className="text-gray-500 text-sm mb-2">{`${article.date} · ${article.author}`}</p>
-                <p className="text-gray-700 mb-4">{article.description}</p>
-                <Link
-                  to={article.id === 1 ? "/HouseUpdate" : "/PlotUpdate"}
-                  className="text-blue-600 font-semibold transform transition-transform duration-200 hover:scale-110"
-                >
-                  Read More
-                </Link>
-              </div>
-            </a>
-          ))}
-        </div>
+      {/* News Articles */}
+      <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-8 mb-12 mt-12 md:px-40">
+        {newsArticles.map((article) => (
+          <a
+            key={article.id}
+            href={article.link}
+            className="block border rounded-lg overflow-hidden shadow-xl hover:border-gray-300 transition-transform transform hover:scale-105"
+          >
+            <img
+              src={article.image}
+              alt={article.title}
+              className="w-full h-64 object-cover"
+            />
+            <div className="p-6">
+              <h2 className="text-xl font-semibold mb-2">{article.title}</h2>
+              <p className="text-gray-500 text-sm mb-2">{`${article.date} · ${article.author}`}</p>
+              <p className="text-gray-700 mb-4">{article.description}</p>
+              <Link
+                to={article.id === 1 ? "/HouseUpdate" : "/PlotUpdate"}
+                className="text-blue-600 font-semibold hover:underline"
+              >
+                Read More
+              </Link>
+            </div>
+          </a>
+        ))}
+      </div>
 
-        {/* Property Spotlights */}
-        <h2 className="text-3xl font-serif mb-6">Property Spotlights</h2>
-        <div className="grid md:grid-cols-3 gap-8 mb-6 m-6">
-          {propertySpotlights.map((property, idx) => (
-            <a
-              href={property.link}
-              key={idx}
-              className="block border rounded-lg overflow-hidden shadow hover:shadow-lg transition"
-            >
-              <img
-                src={property.image}
-                alt={property.title}
-                className="w-full h-64 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-lg font-semibold mb-1">{property.title}</h3>
-                <p className="text-gray-500 mb-1">{property.location}</p>
-                <p className="text-gray-700 mb-2">{property.details}</p>
-                <p className="font-bold mb-2">{property.price}</p>
-                <button className="bg-gray-200 text-gray-800 px-4 py-2 rounded">
-                  View Property
-                </button>
-              </div>
-            </a>
-          ))}
-        </div>
+      {/* Property Spotlights */}
+      <h2 className="text-3xl font-serif mb-6 text-center">Property Spotlights</h2>
+      <div className="grid md:grid-cols-3 gap-8 mb-6 m-6">
+        {propertySpotlights.map((property, idx) => (
+          <a
+            key={idx}
+            href={property.link}
+            className="block border rounded-lg overflow-hidden shadow hover:shadow-lg transition-transform transform hover:scale-105"
+          >
+            <img
+              src={property.image}
+              alt={property.title}
+              className="w-full h-64 object-cover"
+            />
+            <div className="p-6">
+              <h3 className="text-lg font-semibold mb-1">{property.title}</h3>
+              <p className="text-gray-500 mb-1">{property.location}</p>
+              <p className="text-gray-700 mb-2">{property.details}</p>
+              <p className="font-bold mb-2">{property.price}</p>
+              <button className="bg-gray-200 text-gray-800 px-4 py-2 rounded">
+                View Property
+              </button>
+            </div>
+          </a>
+        ))}
+      </div>
 
-        {/* Insights */}
-        <div className="grid md:grid-cols-2 gap-8 m-6">
-          {insights.map((insight, idx) => (
-            <a
-              href={insight.link}
-              key={idx}
-              className="flex border rounded-lg overflow-hidden shadow hover:shadow-lg transition"
-            >
-              {insight.image && (
-                <img
-                  src={insight.image}
-                  alt={insight.title}
-                  className="w-1/3 object-cover"
-                />
-              )}
-              <div className="p-6">
-                <h4 className="text-lg font-semibold mb-2">{insight.title}</h4>
-                <p className="text-gray-700">{insight.description}</p>
-                <span className="text-blue-600 font-semibold mt-2 block">
-                  Read More
-                </span>
-              </div>
-            </a>
-          ))}
-        </div>
+      {/* Insights Section */}
+      <div className="grid md:grid-cols-2 gap-8 m-6">
+        {insights.map((insight, idx) => (
+          <a
+            key={idx}
+            href={insight.link}
+            className="flex border rounded-lg overflow-hidden shadow hover:shadow-lg transition-transform transform hover:scale-105"
+          >
+            {insight.image && (
+              <img
+                src={insight.image}
+                alt={insight.title}
+                className="w-1/3 object-cover"
+              />
+            )}
+            <div className="p-6">
+              <h4 className="text-lg font-semibold mb-2">{insight.title}</h4>
+              <p className="text-gray-700">{insight.description}</p>
+              <span className="text-blue-600 font-semibold mt-2 block">
+                Read More
+              </span>
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   );
