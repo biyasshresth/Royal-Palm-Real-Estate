@@ -80,7 +80,12 @@ const Footer: React.FC = () => {
           <h3 className="text-white font-bold text-lg mb-4">Quick Links</h3>
           <ul className="space-y-3">
             <li>
-              <Link to="/BuyPropertyOption" className="hover:text-white hover:underline">Buy Property</Link>
+              <Link
+                to="/BuyPropertyOption"
+                className="hover:text-white hover:underline"
+              >
+                Buy Property
+              </Link>
             </li>
             <li>
               <Link to="/Sell" className="hover:text-white hover:underline">
@@ -111,7 +116,7 @@ const Footer: React.FC = () => {
         {/* Company */}
         <div>
           <h3 className="text-white font-bold text-lg mb-4">Company</h3>
-          <ul className="space-y-3">
+          <ul className="space-y-2">
             <li>
               <Link to="/AboutUs" className="hover:text-white hover:underline">
                 About Us
@@ -136,7 +141,12 @@ const Footer: React.FC = () => {
                 to="/NewsblogsPage"
                 className="hover:text-white hover:underline"
               >
-                News & Blogs
+                News & Updates
+              </Link>
+            </li>
+            <li>
+              <Link to="/BlogPage" className="hover:text-white hover:underline">
+                Blogs Page
               </Link>
             </li>
             <li>

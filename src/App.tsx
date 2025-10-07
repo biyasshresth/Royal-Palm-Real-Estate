@@ -9,6 +9,7 @@ import Login from "./components/LogIn";
 import "./App.css";
 import Faq from "./components/Faq";
 import NewsUpdate from "./components/NewsBlogs/PlotUpdate";
+import BlogPage from "./components/NewsBlogs/BlogPage";
 import HouseUpdate from "./components/NewsBlogs/HouseUpdate";
 import NewsblogsPage from "./components/NewsBlogs/NewsblogsPage";
 import TermsPolicy from "./components/TermsPolicy";
@@ -46,6 +47,7 @@ const App: React.FC = () => {
             <Route path="/NewsUpdate" element={<NewsUpdate />} />
             <Route path="/HouseUpdate" element={<HouseUpdate />} />
             <Route path="/NewsblogsPage" element={<NewsblogsPage />} />
+            <Route path="/BlogPage" element={<BlogPage />} />
             <Route path="/TermsPolicy" element={<TermsPolicy />} />
             <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
             <Route path="/DataDeletion" element={<DataDeletion />} />
