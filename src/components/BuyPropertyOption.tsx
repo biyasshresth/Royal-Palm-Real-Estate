@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"; // Added useEffect
+import React, { useState, useEffect } from "react"; 
 import LandMark from "../assets/LandMark.png";
 import { Link } from "react-router-dom";
 
@@ -26,7 +26,7 @@ const BuyPropertyOption: React.FC = () => {
             imagined.
           </p>
 
-          {/* Options to select image */}
+          {/* Options */}
           <div className="flex gap-3 justify-center md:justify-start">
             <Link
               to="/BuyLand"
@@ -40,7 +40,7 @@ const BuyPropertyOption: React.FC = () => {
               Lands And Plotings
             </Link>
             <Link
-              to="/Contact"
+              to="/BuyLand"
               className={`px-4 py-2 rounded-lg font-medium ${
                 selectedImage === "Default.png"
                   ? "bg-black text-white"

@@ -5,6 +5,7 @@ import {
   FaMapMarkerAlt,
   FaClock,
 } from "react-icons/fa";
+import { motion } from "framer-motion";  
 import Footer from "./Footer";
 
 interface InfoCardProps {
@@ -28,7 +29,6 @@ const InfoCard: React.FC<InfoCardProps> = ({ icon, title, children }) => {
 };
 
 const Contact: React.FC = (): React.ReactElement => {
-  // Scroll to top on component mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -42,12 +42,16 @@ const Contact: React.FC = (): React.ReactElement => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    // replace with real submit logic if you have API endpoint
     alert("Message submitted (SUCCESSFULLY!!!!!!)");
   };
 
   return (
-    <>
+    <motion.div
+      className="max-w-full pb-4"
+      initial={{ opacity: 0, y: 20 }}            
+      animate={{ opacity: 1, y: 0 }}            
+      transition={{ duration: 0.8, ease: "easeOut" }}   
+    >
       <header className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white h-44">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center py-12 sm:py-16 lg:py-10">
@@ -62,13 +66,11 @@ const Contact: React.FC = (): React.ReactElement => {
         </div>
       </header>
 
-      {/* Main content area (centered container) */}
       <main className="bg-white">
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 overflow-x-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            {/* Left column (contact info + form) */}
+            {/* Left column */}
             <div className="lg:col-span-5">
-              {/* Section title */}
               <div className="mb-6">
                 <h2 className="text-2xl font-semibold text-gray-800">
                   Contact Information
@@ -78,7 +80,6 @@ const Contact: React.FC = (): React.ReactElement => {
                 </p>
               </div>
 
-              {/* Info cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <InfoCard icon={<FaPhoneAlt />} title="">
                   <div>
@@ -127,7 +128,6 @@ const Contact: React.FC = (): React.ReactElement => {
                 </InfoCard>
               </div>
 
-              {/* Send us a Message */}
               <div className="mt-10">
                 <div className="bg-white border border-gray-200 rounded-lg shadow-xl p-5">
                   <h3 className="text-lg font-semibold text-gray-800 mb-3">
@@ -198,7 +198,6 @@ const Contact: React.FC = (): React.ReactElement => {
             {/* Right column (map) */}
             <div className="lg:col-span-7">
               <div className="flex flex-col">
-                {/* Title above the map */}
                 <h3 className="text-2xl font-semibold text-gray-800 mb-4 text-center lg:text-left">
                   Located Map
                 </h3>
@@ -222,7 +221,9 @@ const Contact: React.FC = (): React.ReactElement => {
           </div>
         </section>
       </main>
-    </>
+
+      <Footer />
+    </motion.div>
   );
 };
 

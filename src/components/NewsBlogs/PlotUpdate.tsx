@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import Logo from "../../assets/logo.svg";
 import AvailablePlot from "../../assets/AvailablePlot.png";
 import AvailablePlot1 from "../../assets/AvailablePlot1.png";
@@ -11,12 +12,10 @@ const PlotUpdate: FC = () => {
   const [liked, setLiked] = useState<boolean>(false);
   const [current, setCurrent] = useState(0);
 
-  // Scroll to top on load
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Rotating related property images
   const images = [
     { src: AvailablePlot1, alt: "Available Plot 1" },
     { src: AvailablePlot2, alt: "Available Plot 2" },
@@ -26,22 +25,24 @@ const PlotUpdate: FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
-    }, 2000); // rotate every 2.5s
+    }, 2000);
     return () => clearInterval(interval);
   }, [images.length]);
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
+    <motion.div
+      className="min-h-screen bg-white overflow-x-hidden"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
       <div className="flex justify-center items-center p-6 border-b bg-orange-600">
         <h1 className="text-2xl md:text-2xl font-extrabold tracking-tight text-white font-times">
           Trending Prices & Prime Locations
         </h1>
       </div>
 
-      {/* Main content */}
       <div className="flex flex-col md:flex-row p-6 gap-8">
-        {/* Left side */}
         <div className="flex flex-col items-center gap-6 md:w-1/2 w-full">
           <img
             src={AvailablePlot}
@@ -49,7 +50,6 @@ const PlotUpdate: FC = () => {
             className="rounded-xl shadow-2xl w-full object-cover h-96"
           />
 
-          {/* Like button */}
           <div className="flex items-center gap-2">
             <button
               onClick={() => setLiked(!liked)}
@@ -66,7 +66,6 @@ const PlotUpdate: FC = () => {
             </p>
           </div>
 
-          {/* Seller Info */}
           <div className="w-full bg-gray-50 border rounded-2xl shadow-lg p-6">
             <h3 className="text-xl font-bold mb-5 border-b pb-2 text-gray-700">
               Seller's Information
@@ -92,7 +91,6 @@ const PlotUpdate: FC = () => {
           </div>
         </div>
 
-        {/* Right side */}
         <div className="md:w-1/2 w-full">
           <h2 className="text-2xl font-bold mb-4 text-gray-800">
             Chabahil Hillside
@@ -103,7 +101,6 @@ const PlotUpdate: FC = () => {
             for immediate sale.
           </p>
 
-          {/* General Info */}
           <div className="mb-6">
             <h3 className="font-bold text-basemb-3 text-gray-700 border-b pb-2">
               General Information
@@ -124,7 +121,6 @@ const PlotUpdate: FC = () => {
             </div>
           </div>
 
-          {/* Specifications */}
           <div>
             <h3 className="font-bold mb-3 text-gray-700 border-b pb-2">
               Specifications
@@ -141,24 +137,21 @@ const PlotUpdate: FC = () => {
             </div>
           </div>
 
-          {/* Rotating Related Property Card */}
-          <div className="mt-5 mb-10 mr-60 w-full ">
+          <div className="mt-5 mb-10 mr-60 w-full">
             <h3 className="text-xl font-semibold text-gray-800 mb-4">
               Related Property!!!
             </h3>
 
             <a
-              href="/related-properties"  
+              href="/related-properties"
               className="block relative w-full md:w-2/3 mx-auto rounded-lg overflow-hidden shadow-lg h-48 group"
             >
-              {/* Rotating Image */}
               <img
                 src={images[current].src}
                 alt={images[current].alt}
                 className="w-full h-48 object-cover transition-opacity duration-700 group-hover:scale-105"
               />
 
-              {/* Overlay Text */}
               <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                 <h2 className="text-white text-lg md:text-2xl font-bold text-center px-4">
                   Get exciting offers in these property
@@ -168,7 +161,7 @@ const PlotUpdate: FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
