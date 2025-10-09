@@ -27,6 +27,7 @@ import PropMgnt from "./components/PropMgnt";
 import InvestmentConsult from "./components/InvestmentConsult";
 import BuyPropertyOption from "./components/BuyPropertyOption";
 import BuyLand from "./components/BuyLand";
+import Registration from "./components/Registration";
 
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -64,6 +65,7 @@ const App: React.FC = () => {
             <Route path="/investment-consult" element={<InvestmentConsult />} />
             <Route path="/buyproperty-option" element={<BuyPropertyOption />} />
             <Route path="/buy-land" element={<BuyLand />} />
+            <Route path="/registration" element={<Registration />} />
           </Routes>
         </main>
         <Footer />

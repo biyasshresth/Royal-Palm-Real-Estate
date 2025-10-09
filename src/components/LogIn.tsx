@@ -57,7 +57,9 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn }) => {
 
         <form onSubmit={handleLogin} className="space-y-5 text-left">
           <div>
-            <label className="block text-gray-700 font-medium mb-1">Email</label>
+            <label className="block text-gray-700 font-medium mb-1">
+              Email
+            </label>
             <input
               type="email"
               value={email}
@@ -69,7 +71,9 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn }) => {
           </div>
 
           <div>
-            <label className="block text-gray-700 font-medium mb-1">Password</label>
+            <label className="block text-gray-700 font-medium mb-1">
+              Password
+            </label>
             <input
               type="password"
               value={password}
@@ -94,7 +98,7 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn }) => {
           Don’t have an account?{" "}
           <span
             className="text-orange-500 hover:underline cursor-pointer"
-            onClick={() => navigate("/signup")}
+            onClick={() => navigate("/registration")}
           >
             Sign Up
           </span>
