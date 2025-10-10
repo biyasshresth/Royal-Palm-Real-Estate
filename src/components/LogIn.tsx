@@ -12,9 +12,9 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn }) => {
   const [identifier, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
-
+  const loginService = new UserService();
   const navigate = useNavigate();
-
+  const [showPassword, setShowPassword] = useState(false);
   // Typed change handlers
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
