@@ -20,8 +20,8 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn, setIsLoggedIn }) => {
   const navItems = isLoggedIn
     ? [
         { label: "Home", path: "/" },
-        { label: "Buy", path: "/buy" },
-        { label: "Sell", path: "/Sell" },
+        { label: "Buy", path: "/buyproperty-option" },
+        { label: "Sell", path: "/sell-property" },
         { label: "Rent", path: "/Rent" },
         { label: "Contact", path: "/Contact" },
       ]
