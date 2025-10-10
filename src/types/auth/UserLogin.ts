@@ -1,7 +1,7 @@
 import { UserView } from "types/User";
 
 export interface UserCredentials {
-  email: string;
+  identifier: string;
   password: string;
   remember: boolean;
 }

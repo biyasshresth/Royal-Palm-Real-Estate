@@ -1,5 +1,5 @@
 import type { AuthUser } from "types/auth/UserLogin";
-import { storeToken } from "utils/authToken";
+import { storeToken } from "../utils/authToken";
 import axios, {
   type AxiosInstance,
   type AxiosRequestConfig,

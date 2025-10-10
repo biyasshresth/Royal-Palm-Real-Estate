@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.svg";
 import { useNavigate } from "react-router-dom";
-import { Eye, EyeOff } from "lucide-react";
+import { UserCredentials } from "types/User";
+import UserService from "../services/user/UserService";
+
 interface LoginProps {
   setIsLoggedIn: (loggedIn: boolean) => void;
 }
 
 const Login: React.FC<LoginProps> = ({ setIsLoggedIn }) => {
-  const [email, setEmail] = useState<string>("");
+  const [identifier, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
-  const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
@@ -23,21 +24,36 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn }) => {
     setPassword(e.target.value);
   };
 
-  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const DEMO_USER = {
-      email: "demo@realestate.com",
-      password: "demo123",
+    const credentials: UserCredentials = {
+      identifier,
+      password,
+      remember: false,
     };
-
-    if (email === DEMO_USER.email && password === DEMO_USER.password) {
+    console.log(credentials);
+    try {
+      const response = await loginService.login(credentials);
+      console.log(response);
       setIsLoggedIn(true);
       navigate("/");
       setError("");
-    } else {
+    } catch (error: unknown) {
       setError("Invalid email or password");
+      console.error(error);
     }
+    // const DEMO_USER = {
+    //   email: "demo@realestate.com",
+    //   password: "demo123",
+    // };
+
+    // if (email === DEMO_USER.email && password === DEMO_USER.password) {
+    //   setIsLoggedIn(true);
+    //   navigate("/");
+    //   setError("");
+    // } else {
+    //   setError("Invalid email or password");
+    // }
   };
 
   return (
@@ -63,7 +79,7 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn }) => {
             </label>
             <input
               type="email"
-              value={email}
+              value={identifier}
               onChange={handleEmailChange}
               required
               placeholder="Enter your email"
