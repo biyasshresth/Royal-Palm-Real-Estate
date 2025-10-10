@@ -25,7 +25,7 @@ interface CustomAxiosInstance extends AxiosInstance {
   delete<T = unknown>(url: string, config?: AxiosRequestConfig): Promise<T>;
 }
 
-// ✅ Create the axios instance
+// axios instance
 const apiClient = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
   withCredentials: true,

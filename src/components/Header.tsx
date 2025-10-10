@@ -27,7 +27,7 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn, setIsLoggedIn }) => {
       ]
     : [
         { label: "Home", path: "/" },
-        { label: "About Us", path: "/AboutUs" },
+        { label: "About Us", path: "/about-us" },
       ];
 
   const handleSearch = () => {

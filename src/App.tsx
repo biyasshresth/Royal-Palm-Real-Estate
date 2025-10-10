@@ -27,6 +27,7 @@ import PropMgnt from "./components/PropMgnt";
 import InvestmentConsult from "./components/InvestmentConsult";
 import BuyPropertyOption from "./components/BuyPropertyOption";
 import BuyLand from "./components/BuyLand";
+import Registration from "./components/Registration";
 
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -43,27 +44,28 @@ const App: React.FC = () => {
               path="/login"
               element={<Login setIsLoggedIn={setIsLoggedIn} />}
             />
-            <Route path="/AboutUs" element={<AboutUs />} />
+            <Route path="/about-us" element={<AboutUs />} />
             <Route path="/NewsUpdate" element={<NewsUpdate />} />
-            <Route path="/HouseUpdate" element={<HouseUpdate />} />
-            <Route path="/NewsblogsPage" element={<NewsblogsPage />} />
-            <Route path="/BlogPage" element={<BlogPage />} />
-            <Route path="/TermsPolicy" element={<TermsPolicy />} />
-            <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
-            <Route path="/DataDeletion" element={<DataDeletion />} />
-            <Route path="/Contact" element={<Contact />} />
-            <Route path="/PlotUpdate" element={<PlotUpdate />} />
-            <Route path="/Faq" element={<Faq />} />
+            <Route path="/house-update" element={<HouseUpdate />} />
+            <Route path="/newsblogs-page" element={<NewsblogsPage />} />
+            <Route path="/blog-page" element={<BlogPage />} />
+            <Route path="/terms-policy" element={<TermsPolicy />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/data-deletion" element={<DataDeletion />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/plot-update" element={<PlotUpdate />} />
+            <Route path="/faq" element={<Faq />} />
             <Route path="/our-team" element={<OurTeam />} />
-            <Route path="/PartnerDiscrip" element={<PartnerDiscrip />} />
-            <Route path="/Sell" element={<Sell />} />
-            <Route path="/PropertySales" element={<PropertySales />} />
-            <Route path="/MarketAnalysis" element={<MarketAnalysis />} />
-            <Route path="/MortageService" element={<MortageService />} />
-            <Route path="/PropMgnt" element={<PropMgnt />} />
-            <Route path="/InvestmentConsult" element={<InvestmentConsult />} />
-            <Route path="/BuyPropertyOption" element={<BuyPropertyOption />} />
-            <Route path="/BuyLand" element={<BuyLand />} />
+            <Route path="/partner-discrip" element={<PartnerDiscrip />} />
+            <Route path="/sell-property" element={<Sell />} />
+            <Route path="/property-sales" element={<PropertySales />} />
+            <Route path="/market-analysis" element={<MarketAnalysis />} />
+            <Route path="/mortage-service" element={<MortageService />} />
+            <Route path="/property-mgnt" element={<PropMgnt />} />
+            <Route path="/investment-consult" element={<InvestmentConsult />} />
+            <Route path="/buyproperty-option" element={<BuyPropertyOption />} />
+            <Route path="/buy-land" element={<BuyLand />} />
+            <Route path="/registration" element={<Registration />} />
           </Routes>
         </main>
         <Footer />

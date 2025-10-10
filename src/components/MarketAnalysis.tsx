@@ -59,31 +59,50 @@ const MarketAnalysis: React.FC = () => {
       </div>
 
       {/* Top cards */}
-      <div className="flex flex-col sm:flex-row gap-6 w-full mb-28">
+      <div className="flex flex-row sm:flex-row gap-6 w-full mb-28">
         {[
-          { icon: FaHome, title: "Buy a new home", color: "blue" },
-          { icon: FaEye, title: "See a home", color: "pink" },
-          { icon: FaKey, title: "Rent a home", color: "green" },
-        ].map(({ icon: Icon, title, color }, idx) => (
+          {
+            icon: FaHome,
+            title: "Buy a new home",
+            color: "blue",
+            description:
+              "Find your dream home with ease. Explore listings, compare prices, and make confident decisions with expert guidance every step of the way.",
+          },
+          {
+            icon: FaEye,
+            title: "See a home",
+            color: "pink",
+            description:
+              "Schedule viewings easily and take a closer look at homes that match your style, location, and budget.",
+          },
+          {
+            icon: FaKey,
+            title: "Rent a home",
+            color: "green",
+            description:
+              "Discover quality rental homes that fit your needs — flexible terms, verified listings, and secure agreements.",
+          },
+        ].map(({ icon: Icon, title, description, color }, idx) => (
           <div
             key={idx}
-            className="bg-white rounded-xl shadow-md flex flex-col sm:flex-row md:flex-row  items-center p-6 flex-1 relative group overflow-hidden cursor-pointer"
+            className="bg-white rounded-xl shadow-md flex flex-col p-6 flex-1 relative group overflow-hidden cursor-pointer"
           >
             <div
               className={`absolute top-0 left-0 w-full h-full bg-gradient-to-tl from-orange-500 to-orange-100 opacity-0 group-hover:opacity-50 transition-opacity duration-300 pointer-events-none rounded-t-xl z-0`}
             />
-            <div
-              className={`bg-${color}-100 p-3 rounded-full text-${color}-600 mb-4 z-10 relative`}
-            >
-              <Icon size={22} />
+
+            {/* Row with icon and title */}
+            <div className="flex flex-row justify-center items-center gap-3 relative z-10 mb-3">
+              <div
+                className={`bg-${color}-100 p-3 rounded-full text-${color}-600`}
+              >
+                <Icon size={22} />
+              </div>
+              <h3 className="font-semibold text-gray-900">{title}</h3>
             </div>
-            <h3 className="font-semibold text-gray-900 mb-2 text-center z-10 relative">
-              {title}
-            </h3>
-            <p className="text-gray-500 text-sm text-center z-10 relative">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
-              facere.
-            </p>
+
+            {/* Description below */}
+            <p className="text-gray-700 text-sm relative z-10">{description}</p>
           </div>
         ))}
       </div>
@@ -106,7 +125,7 @@ const MarketAnalysis: React.FC = () => {
 
         {/* Right side */}
         <div className="flex-1 w-full lg:w-1/2 m-2">
-          <p className="text-xs text-gray-400 uppercase font-semibold mb-1">
+          <p className="text-base text-gray-600 uppercase font-semibold mb-1">
             FAQS
           </p>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-10">

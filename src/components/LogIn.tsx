@@ -115,7 +115,7 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn }) => {
           Don’t have an account?{" "}
           <span
             className="text-orange-500 hover:underline cursor-pointer"
-            onClick={() => navigate("/signup")}
+            onClick={() => navigate("/registration")}
           >
             Sign Up
           </span>
