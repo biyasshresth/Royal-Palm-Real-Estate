@@ -3,7 +3,7 @@ import logo from "../assets/logo.svg";
 import { useNavigate } from "react-router-dom";
 import { UserCredentials } from "types/User";
 import UserService from "../services/user/UserService";
-
+import { Eye, EyeOff } from "lucide-react";
 interface LoginProps {
   setIsLoggedIn: (loggedIn: boolean) => void;
 }
