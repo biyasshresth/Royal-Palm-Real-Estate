@@ -1,11 +1,13 @@
 export interface User {
-  name: string;
-  identifier: string;
+  first_name: string;
+  middle_name?: string;
+  last_name: string;
+  email: string;
   password: string;
   confirm_password: string;
-  permanent_address: string;
-  phone: string;
+  mobile_number: string;
   date_of_birth: string;
+  address_line1: string;
 }
 
 export interface UserView extends User {

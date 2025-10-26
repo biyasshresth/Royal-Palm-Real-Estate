@@ -1,9 +1,10 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React, { useState, ChangeEvent, FormEvent, cache } from "react";
 import { motion, AnimatePresence, number } from "framer-motion";
 import { CheckCircle2, Facebook, Twitter, Eye, EyeOff } from "lucide-react";
 import SignInPic from "../assets/SignInPic.png";
 import logo from "../assets/logo.svg";
-
+import UserService from "../services/user/UserService";
+import { User } from "types/User";
 export default function RegisterTwoPanel() {
   const [form, setForm] = useState({
     firstName: "",
@@ -20,12 +21,23 @@ export default function RegisterTwoPanel() {
   const [submitted, setSubmitted] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
+  const userService = new UserService();
+  const [newuser, setNewUser] = useState<User>({
+    first_name: "",
+    middle_name: "",
+    last_name: "",
+    email: "",
+    password: "",
+    mobile_number: "",
+    confirm_password: "",
+    address_line1: "",
+    date_of_birth: "",
+  });
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { firstName, lastName, email, address, password, confirmPassword } =
       form;
@@ -38,6 +50,22 @@ export default function RegisterTwoPanel() {
     if (password !== confirmPassword) {
       alert("Passwords do not match.");
       return;
+    }
+    try {
+      const form = new FormData();
+      form.append("first_name", newuser.first_name);
+      form.append("last_name", newuser.last_name);
+      form.append("email", newuser.email);
+      form.append("address", newuser.address_line1);
+      form.append("mobile_number", newuser.mobile_number);
+      form.append("password", newuser.password);
+      form.append("confirm_password", newuser.confirm_password);
+      if (newuser.date_of_birth) {
+        form.append("date_of_birth", newuser.date_of_birth);
+      }
+      const response = await userService.register(newuser);
+    } catch (error) {
+      console.error(error);
     }
 
     setSubmitted(true);
@@ -112,7 +140,7 @@ export default function RegisterTwoPanel() {
                   id="firstName"
                   type="text"
                   name="firstName"
-                  value={form.firstName}
+                  value={newuser.first_name}
                   onChange={handleChange}
                   placeholder="First Name"
                   className="p-3 rounded-lg text-gray-800 w-full h-8"
@@ -130,7 +158,7 @@ export default function RegisterTwoPanel() {
                   id="middleName"
                   type="text"
                   name="middleName"
-                  value={form.middleName || ""}
+                  value={newuser.middle_name || ""}
                   onChange={handleChange}
                   placeholder="Middle Name"
                   className="p-3 rounded-lg text-gray-800 w-full h-8"
@@ -148,7 +176,7 @@ export default function RegisterTwoPanel() {
                   id="lastName"
                   type="text"
                   name="lastName"
-                  value={form.lastName}
+                  value={newuser.last_name}
                   onChange={handleChange}
                   placeholder="Last Name"
                   className="p-3 rounded-lg text-gray-800 w-full h-8"
@@ -168,7 +196,7 @@ export default function RegisterTwoPanel() {
                 id="email"
                 type="email"
                 name="email"
-                value={form.email}
+                value={newuser.email}
                 onChange={handleChange}
                 placeholder="you@example.com"
                 className="p-3 rounded-lg text-gray-800 w-full h-8"
@@ -181,7 +209,7 @@ export default function RegisterTwoPanel() {
                   id="number"
                   type="text"
                   name="number"
-                  value={form.number}
+                  value={newuser.mobile_number}
                   onChange={handleChange}
                   placeholder="Phone Number"
                   className="p-3 rounded-lg text-gray-800 w-full h-8"
@@ -193,7 +221,7 @@ export default function RegisterTwoPanel() {
                   id="dob"
                   type="date"
                   name="date_of_birth"
-                  value={form.date_of_birth || ""}
+                  value={newuser.date_of_birth || ""}
                   onChange={handleChange}
                   className="p-3 rounded-lg text-gray-800 w-full h-8"
                 />
@@ -212,7 +240,7 @@ export default function RegisterTwoPanel() {
                 id="address"
                 type="text"
                 name="address"
-                value={form.address}
+                value={newuser.address_line1}
                 onChange={handleChange}
                 placeholder=" Address"
                 className="p-3 rounded-lg text-gray-800 w-full h-8"
