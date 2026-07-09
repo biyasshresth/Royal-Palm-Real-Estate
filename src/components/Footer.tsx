@@ -80,10 +80,18 @@ const Footer: React.FC = () => {
           <h3 className="text-white font-bold text-lg mb-4">Quick Links</h3>
           <ul className="space-y-3">
             <li>
-              <Link to="/BuyPropertyOption" className="hover:text-white hover:underline">Buy Property</Link>
+              <Link
+                to="/buyproperty-option"
+                className="hover:text-white hover:underline"
+              >
+                Buy Property
+              </Link>
             </li>
             <li>
-              <Link to="/Sell" className="hover:text-white hover:underline">
+              <Link
+                to="/sell-property"
+                className="hover:text-white hover:underline"
+              >
                 Sale Property
               </Link>
             </li>
@@ -93,16 +101,19 @@ const Footer: React.FC = () => {
               </Link>
             </li>
             <li>
-              <Link to="/PropMgnt" className="hover:text-white hover:underline">
-                PropMngt
+              <Link
+                to="/Property-Mgnt"
+                className="hover:text-white hover:underline"
+              >
+                Property Mngt
               </Link>
             </li>
             <li>
               <Link
-                to="/MarketAnalysis"
+                to="/market-analysis"
                 className="hover:text-white hover:underline"
               >
-                MarketAnalysis
+                Market Analysis
               </Link>
             </li>
           </ul>
@@ -111,9 +122,9 @@ const Footer: React.FC = () => {
         {/* Company */}
         <div>
           <h3 className="text-white font-bold text-lg mb-4">Company</h3>
-          <ul className="space-y-3">
+          <ul className="space-y-2">
             <li>
-              <Link to="/AboutUs" className="hover:text-white hover:underline">
+              <Link to="/about-us" className="hover:text-white hover:underline">
                 About Us
               </Link>
             </li>
@@ -133,10 +144,18 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <Link
-                to="/NewsblogsPage"
+                to="/newsblogs-page"
                 className="hover:text-white hover:underline"
               >
-                News & Blogs
+                News & Updates
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/blog-page"
+                className="hover:text-white hover:underline"
+              >
+                Blogs Page
               </Link>
             </li>
             <li>
@@ -181,15 +200,18 @@ const Footer: React.FC = () => {
         </p>
         <div className="flex space-x-6">
           <Link
-            to="/PrivacyPolicy"
+            to="/privacy-policy"
             className="hover:text-white hover:underline"
           >
             Privacy & Policy
           </Link>
-          <Link to="/TermsPolicy" className="hover:text-white hover:underline">
+          <Link to="/terms-policy" className="hover:text-white hover:underline">
             Terms & Policy
           </Link>
-          <Link to="/DataDeletion" className="hover:text-white hover:underline">
+          <Link
+            to="/data-deletion"
+            className="hover:text-white hover:underline"
+          >
             Data Deletion Policy
           </Link>
         </div>

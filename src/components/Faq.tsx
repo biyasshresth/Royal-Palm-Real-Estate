@@ -71,11 +71,12 @@ const Faq = forwardRef<HTMLDivElement>((props, ref) => {
     <section
       ref={ref}
       className="relative min-h-screen overflow-hidden bg-orange-50"
+      
     >
       {/* ORANGE background layers */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-4 top-4 mx-auto h-[1000px] max-w-6xl rounded-3xl border border-orange-200 bg-gradient-to-b from-orange-100 to-orange-300"
+        className="pointer-events-none absolute inset-x-4 top-4 mx-auto h-[1000px] max-w-6xl rounded-3xl border border-orange-200 bg-gradient-to-b from-orange-200 to-orange-300"
       />
       <div
         aria-hidden="true"

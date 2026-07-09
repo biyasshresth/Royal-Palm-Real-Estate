@@ -52,7 +52,7 @@ const NewsblogsPage: FC = () => {
       description:
         "Driving river exerted by returns ero imperial area and a soverno",
       image: Suburban,
-      link: "HouseUpdate",
+      link: "house-update",
     },
     {
       id: 2,
@@ -62,7 +62,7 @@ const NewsblogsPage: FC = () => {
       description:
         "Feedis reather emori larnth of the timoe-cho a times Fmnaab",
       image: BannerLand,
-      link: "PlotUpdate",
+      link: "plot-update",
     },
   ];
 
@@ -152,7 +152,7 @@ const NewsblogsPage: FC = () => {
               <p className="text-gray-500 text-sm mb-2">{`${article.date} · ${article.author}`}</p>
               <p className="text-gray-700 mb-4">{article.description}</p>
               <Link
-                to={article.id === 1 ? "/HouseUpdate" : "/PlotUpdate"}
+                to={article.id === 1 ? "/house-update" : "/plot-update"}
                 className="text-blue-600 font-semibold hover:underline"
               >
                 Read More
@@ -163,7 +163,9 @@ const NewsblogsPage: FC = () => {
       </div>
 
       {/* Property Spotlights */}
-      <h2 className="text-3xl font-serif mb-6 text-center">Property Spotlights</h2>
+      <h2 className="text-3xl font-serif mb-6 text-center">
+        Property Spotlights
+      </h2>
       <div className="grid md:grid-cols-3 gap-8 mb-6 m-6">
         {propertySpotlights.map((property, idx) => (
           <a

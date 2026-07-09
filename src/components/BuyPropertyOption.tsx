@@ -29,7 +29,7 @@ const BuyPropertyOption: React.FC = () => {
           {/* Options */}
           <div className="flex gap-3 justify-center md:justify-start">
             <Link
-              to="/BuyLand"
+              to="/buy-land"
               className={`px-4 py-2 rounded-lg font-medium ${
                 selectedImage === "LandMark.png"
                   ? "bg-black text-white"
@@ -40,7 +40,7 @@ const BuyPropertyOption: React.FC = () => {
               Lands And Plotings
             </Link>
             <Link
-              to="/BuyLand"
+              to="/buy-land"
               className={`px-4 py-2 rounded-lg font-medium ${
                 selectedImage === "Default.png"
                   ? "bg-black text-white"

@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.svg";
 import { useNavigate } from "react-router-dom";
-
+import { UserCredentials } from "types/User";
+import UserService from "../services/user/UserService";
+import { Eye, EyeOff } from "lucide-react";
 interface LoginProps {
   setIsLoggedIn: (loggedIn: boolean) => void;
 }
 
 const Login: React.FC<LoginProps> = ({ setIsLoggedIn }) => {
-  const [email, setEmail] = useState<string>("");
+  const [identifier, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
-
+  const loginService = new UserService();
   const navigate = useNavigate();
-
+  const [showPassword, setShowPassword] = useState(false);
   // Typed change handlers
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -22,21 +24,36 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn }) => {
     setPassword(e.target.value);
   };
 
-  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const DEMO_USER = {
-      email: "demo@realestate.com",
-      password: "demo123",
+    const credentials: UserCredentials = {
+      identifier,
+      password,
+      remember: false,
     };
-
-    if (email === DEMO_USER.email && password === DEMO_USER.password) {
+    console.log(credentials);
+    try {
+      const response = await loginService.login(credentials);
+      console.log(response);
       setIsLoggedIn(true);
       navigate("/");
       setError("");
-    } else {
+    } catch (error: unknown) {
       setError("Invalid email or password");
+      console.error(error);
     }
+    // const DEMO_USER = {
+    //   email: "demo@realestate.com",
+    //   password: "demo123",
+    // };
+
+    // if (email === DEMO_USER.email && password === DEMO_USER.password) {
+    //   setIsLoggedIn(true);
+    //   navigate("/");
+    //   setError("");
+    // } else {
+    //   setError("Invalid email or password");
+    // }
   };
 
   return (
@@ -57,10 +74,12 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn }) => {
 
         <form onSubmit={handleLogin} className="space-y-5 text-left">
           <div>
-            <label className="block text-gray-700 font-medium mb-1">Email</label>
+            <label className="block text-gray-700 font-medium mb-1">
+              Email
+            </label>
             <input
               type="email"
-              value={email}
+              value={identifier}
               onChange={handleEmailChange}
               required
               placeholder="Enter your email"
@@ -68,16 +87,25 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn }) => {
             />
           </div>
 
-          <div>
-            <label className="block text-gray-700 font-medium mb-1">Password</label>
+          <div className="relative">
+            <label className="block text-gray-700 font-medium mb-1">
+              Password
+            </label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               value={password}
               onChange={handlePasswordChange}
               required
               placeholder="Enter your password"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400"
+              className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400"
             />
+            <button
+              type="button"
+              className="absolute top-1/2 right-3  cursor-pointer text-gray-500"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+            </button>
           </div>
 
           {error && <p className="text-red-500 mb-2">{error}</p>}
@@ -94,7 +122,7 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn }) => {
           Don’t have an account?{" "}
           <span
             className="text-orange-500 hover:underline cursor-pointer"
-            onClick={() => navigate("/signup")}
+            onClick={() => navigate("/registration")}
           >
             Sign Up
           </span>
