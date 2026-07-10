@@ -1,7 +1,7 @@
-import { Blog } from "types/blogs.ts/blog";
+ import { Blog } from "@/types/blogs/blog";
 import CoreApiService from "../core/CoreApiService";
-import { APIResponse, APIResponseWithMessage } from "types/APIResponse";
-
+import { APIResponse } from "@/types/APIResponse";
+ 
 export default class BlogService extends CoreApiService {
   constructor() {
     super("");
