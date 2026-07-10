@@ -1,8 +1,7 @@
 // src/App.tsx
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import AboutUs from "./components/AboutUs";
 import Login from "./components/LogIn";
@@ -28,6 +27,7 @@ import InvestmentConsult from "./components/InvestmentConsult";
 import BuyPropertyOption from "./components/BuyPropertyOption";
 import BuyLand from "./components/BuyLand";
 import Registration from "./components/Registration";
+import Header from "./components/Header";
 
 const AppContent: React.FC<{ isLoggedIn: boolean; setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>> }> = ({
   isLoggedIn,

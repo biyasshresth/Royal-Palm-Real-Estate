@@ -1,11 +1,11 @@
-import type { AuthUser } from "types/auth/UserLogin";
-import { storeToken } from "../utils/authToken";
-import axios, {
+import type { AuthUser } from "@/types/auth/UserLogin";
+ import axios, {
   type AxiosInstance,
   type AxiosRequestConfig,
   type AxiosResponse,
 } from "axios";
-import { APIResponse } from "types/APIResponse";
+import { APIResponse } from "@/types/APIResponse";
+ import { storeToken } from "@/utils/authToken";
 import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
