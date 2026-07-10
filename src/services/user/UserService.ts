@@ -1,7 +1,7 @@
 import CoreApiService from "../../core/CoreApiService";
 import { APIResponse, APIResponseWithMessage } from "types/APIResponse";
 import { UserCredentials } from "types/auth/UserLogin";
-import { UserLogin } from "types/User";
+import { User, UserLogin } from "types/User";
 
 export default class UserService extends CoreApiService {
   constructor() {
@@ -13,5 +13,8 @@ export default class UserService extends CoreApiService {
   }
   async logout() {
     return this.get<APIResponseWithMessage>("logout");
+  }
+  async register(data: FormData) {
+    return this.post<APIResponse<UserLogin>>("signup", data);
   }
 }

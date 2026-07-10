@@ -1,20 +1,29 @@
-import React, { useState, useEffect, useRef } from "react";
-import { CiSearch, CiLocationOn } from "react-icons/ci";
-import { FaArrowUp } from "react-icons/fa";
-import ModernHome from "../assets/ModernHome.jpg";
-import pentHouse from "../assets/pentHouse.png";
-import cozy from "../assets/cozy.png";
-import waterfrontVilla from "../assets/WaterFront.jpg";
-import charmingHouse from "../assets/Suburban.png";
+import React, { useState, useEffect, useRef, useMemo } from "react";
+import { FaArrowUp, FaChevronDown, FaChevronUp } from "react-icons/fa";
+import BuyLand from "./../assets/AvailablePlot.png";
 import OurServices from "./OurServices";
 import Partners from "./Partners";
 import Faq from "./Faq";
 import RotatingBanner from "./RotatingBanner";
+import PropertyService from "../services/PropertyService";
+import { Property } from "../types/auth/Property";
 
 const Home: React.FC = () => {
+  const propertyService = useMemo(() => new PropertyService(), []);
   const faqRef = useRef<HTMLDivElement>(null);
-
-  // Typing effect
+  const [fetchFeatured, setFetchFeatured] = useState<Property[]>([]);
+  useEffect(() => {
+    const fetchedproperties = async () => {
+      try {
+        const response = await propertyService.getFeatured();
+        console.log(response);
+        setFetchFeatured(response.featured_listings || []);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchedproperties();
+  }, []);
   const [typedText, setTypedText] = useState("");
   const fullText =
     "Discover the perfect property with our expert real estate services";
@@ -31,7 +40,7 @@ const Home: React.FC = () => {
       }
     }, typingSpeed);
     return () => clearInterval(interval);
-  }, []);
+  }, [propertyService]);
 
   // Scroll-to-top button
   const [showButton, setShowButton] = useState(false);
@@ -58,73 +67,7 @@ const Home: React.FC = () => {
     requestAnimationFrame(animate);
   };
 
-  // Scroll to FAQ
-  useEffect(() => {
-    const handleScrollToFaq = () => {
-      if (!faqRef.current) return;
-
-      const targetPosition = faqRef.current.offsetTop;
-      const startPosition = window.scrollY;
-      const distance = targetPosition - startPosition;
-      const duration = 1500; // increase for slower scroll
-      let start: number | null = null;
-
-      const easeInOutCubic = (t: number) =>
-        t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-
-      const step = (timestamp: number) => {
-        if (!start) start = timestamp;
-        const progress = timestamp - start;
-        const ease = easeInOutCubic(progress / duration);
-        window.scrollTo(0, startPosition + distance * ease);
-        if (progress < duration) window.requestAnimationFrame(step);
-      };
-
-      window.requestAnimationFrame(step);
-    };
-
-    window.addEventListener("scrollToFaq", handleScrollToFaq);
-    return () => window.removeEventListener("scrollToFaq", handleScrollToFaq);
-  }, []);
-
-  // Featured properties
-  const properties = [
-    {
-      title: "Modern Family House",
-      price: "$400,000",
-      features: "3 Bed · 2 Bath",
-      status: "For Sale",
-      img: ModernHome,
-    },
-    {
-      title: "Luxury Penthouse",
-      price: "$850,000",
-      features: "4 Bed · 3 Bath",
-      status: "For Sale",
-      img: pentHouse,
-    },
-    {
-      title: "Cozy Country Cottage",
-      price: "$250,000",
-      features: "2 Bed · 1 Bath",
-      status: "For Sale",
-      img: cozy,
-    },
-    {
-      title: "WaterFront Villa",
-      price: "$150,000",
-      features: "2 Bed · 1 Bath",
-      status: "For Sale",
-      img: waterfrontVilla,
-    },
-    {
-      title: "Charming Suburban House",
-      price: "$150,000",
-      features: "2 Bed · 1 Bath",
-      status: "For Sale",
-      img: charmingHouse,
-    },
-  ];
+  const [showOverview, setShowOverview] = useState(false);
 
   return (
     <div className="w-full relative min-h-full">
@@ -139,7 +82,6 @@ const Home: React.FC = () => {
           <p className="text-lg md:text-xl mb-10 min-h-[48px] font-mono">
             {typedText}
           </p>
-          {/* Search bar */}
         </div>
       </section>
 
@@ -151,25 +93,46 @@ const Home: React.FC = () => {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {properties.map((property, index) => (
-            <div
-              key={index}
-              className="bg-white shadow rounded-lg overflow-hidden p-4 relative transform transition-transform duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
-            >
-              <div className="absolute top-4 left-4 bg-red-500 text-white text-sm px-2 py-1 rounded">
-                {property.status}
+          {/* showOverview  */}
+          {(showOverview ? fetchFeatured : fetchFeatured.slice(0, 3)).map(
+            (property) => (
+              <div
+                key={property.id}
+                className="bg-white shadow rounded-lg overflow-hidden p-4 relative transform transition-transform duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
+              >
+                <div className="absolute top-4 left-4 bg-red-500 text-white text-sm px-2 py-1 rounded">
+                  For Sale
+                </div>
+                <img
+                  src={property.media[0] || BuyLand}
+                  alt={property.title}
+                  className="h-40 w-full object-cover mb-4 rounded"
+                />
+                <h3 className="text-lg font-semibold mb-2">{property.title}</h3>
+                <p className="text-gray-600">
+                  {property.price ? `$${property.price}` : "Price on request"} ·{" "}
+                </p>
+                <p className="text-gray-500 text-sm">{property.city}</p>
               </div>
-              <img
-                src={property.img}
-                alt={property.title}
-                className="h-40 w-full object-cover mb-4 rounded"
-              />
-              <h3 className="text-lg font-semibold mb-2">{property.title}</h3>
-              <p className="text-gray-600">
-                {property.price} · {property.features}
-              </p>
+            )
+          )}
+
+          {/* Show / Hide Overview*/}
+          {fetchFeatured.length > 3 && (
+            <div
+              onClick={() => setShowOverview(!showOverview)}
+              className="flex flex-col items-center justify-center bg-gradient-to-t from-[#f18c08] to-[#f19448] text-white font-semibold rounded-lg shadow-lg cursor-pointer hover:bg-orange-600 transition duration-300 p-4"
+            >
+              {showOverview ? "Hide Overview" : "Show Overview"}
+              <div className="mt-2 animate-bounce">
+                {showOverview ? (
+                  <FaChevronUp size={20} />
+                ) : (
+                  <FaChevronDown size={20} />
+                )}
+              </div>
             </div>
-          ))}
+          )}
         </div>
       </section>
 
@@ -187,8 +150,8 @@ const Home: React.FC = () => {
           aria-label="Scroll to top"
           className="
       fixed 
-      bottom-14 right-10 p-2.5     /*   (mobile) */
-      md:bottom-16 md:right-16 md:p-3.5  /* desktop */
+      bottom-14 right-10 p-2.5
+      md:bottom-16 md:right-16 md:p-3.5
       bg-orange-500 text-white 
       rounded-full shadow-lg 
       hover:bg-orange-600 transition duration-200 

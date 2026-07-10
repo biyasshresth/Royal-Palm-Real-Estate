@@ -36,7 +36,7 @@ const OurServices: React.FC = () => {
       icon: <FaKey className="text-orange-600 text-2xl sm:text-3xl" />,
       title: "Property Management",
       desc: "Full-service property management for landlords and investors",
-      link: "/prop-mgnt",
+      link: "/property-mgnt",
     },
     {
       icon: <FaUsers className="text-orange-600 text-2xl sm:text-3xl" />,

@@ -1,6 +1,8 @@
 export interface APIResponse<T> {
   data: T;
-
+blogs:T;
+featured_listings:T
+blog:T
   status: string;
   message: string;
 }

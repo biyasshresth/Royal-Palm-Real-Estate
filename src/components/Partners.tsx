@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaHome, FaSmile, FaAward, FaStar } from "react-icons/fa";
 import consultancy from "../assets/consultancy.png";
 import Tbother from "../assets/Tbother.jpg";
 import logo from "../assets/logo.svg";
 import { Link } from "react-router-dom";
+import PartnerService from "../services/user/PartnerService";
 
 interface Stat {
   icon: React.ReactNode;
@@ -12,6 +13,18 @@ interface Stat {
 }
 
 const Partners: React.FC = () => {
+  const partnerService = new PartnerService();
+  useEffect(() => {
+    const getpartner = async () => {
+      try {
+        const response = await partnerService.getPartners();
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getpartner();
+  }, []);
   const stats: Stat[] = [
     {
       icon: <FaHome className="h-6 w-6 sm:h-8 sm:w-8" />,
