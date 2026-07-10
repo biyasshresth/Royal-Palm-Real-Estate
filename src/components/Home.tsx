@@ -1,19 +1,29 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import { FaArrowUp, FaChevronDown, FaChevronUp } from "react-icons/fa";
-import ModernHome from "../assets/ModernHome.jpg";
-import AvailablePlot2 from "../assets/AvailablePlot2.png";
-import cozy from "../assets/cozy.png";
-import waterfrontVilla from "../assets/WaterFront.jpg";
-import charmingHouse from "../assets/Suburban.png";
+import BuyLand from "./../assets/AvailablePlot.png";
 import OurServices from "./OurServices";
 import Partners from "./Partners";
 import Faq from "./Faq";
 import RotatingBanner from "./RotatingBanner";
+import PropertyService from "../services/PropertyService";
+import { Property } from "../types/auth/Property";
 
 const Home: React.FC = () => {
+  const propertyService = useMemo(() => new PropertyService(), []);
   const faqRef = useRef<HTMLDivElement>(null);
-
-  // Typing effect
+  const [fetchFeatured, setFetchFeatured] = useState<Property[]>([]);
+  useEffect(() => {
+    const fetchedproperties = async () => {
+      try {
+        const response = await propertyService.getFeatured();
+        console.log(response);
+        setFetchFeatured(response.featured_listings || []);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchedproperties();
+  }, []);
   const [typedText, setTypedText] = useState("");
   const fullText =
     "Discover the perfect property with our expert real estate services";
@@ -30,7 +40,7 @@ const Home: React.FC = () => {
       }
     }, typingSpeed);
     return () => clearInterval(interval);
-  }, []);
+  }, [propertyService]);
 
   // Scroll-to-top button
   const [showButton, setShowButton] = useState(false);
@@ -57,48 +67,7 @@ const Home: React.FC = () => {
     requestAnimationFrame(animate);
   };
 
-  // Featured properties
-  const properties = [
-    {
-      title: "Modern Family House",
-      price: "$400,000",
-      features: "3 Bed · 2 Bath",
-      status: "For Sale",
-      img: ModernHome,
-    },
-    {
-      title: "Available plots",
-      price: "$850,000",
-      features: "4 Aana · 3 Ropani",
-      status: "For Sale",
-      img: AvailablePlot2,
-    },
-    {
-      title: "Cozy Country Cottage",
-      price: "$250,000",
-      features: "2 Bed · 1 Bath",
-      status: "For Sale",
-      img: cozy,
-    },
-    {
-      title: "WaterFront Villa",
-      price: "$150,000",
-      features: "2 Bed · 1 Bath",
-      status: "For Sale",
-      img: waterfrontVilla,
-    },
-    {
-      title: "Charming Suburban House",
-      price: "$150,000",
-      features: "2 Bed · 1 Bath",
-      status: "For Sale",
-      img: charmingHouse,
-    },
-  ];
-
   const [showOverview, setShowOverview] = useState(false);
-  const mainProperties = properties.slice(0, 2);
-  const extraProperties = properties.slice(2);
 
   return (
     <div className="w-full relative min-h-full">
@@ -124,63 +93,46 @@ const Home: React.FC = () => {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {/* Main properties */}
-          {mainProperties.map((property, index) => (
-            <div
-              key={index}
-              className="bg-white shadow rounded-lg overflow-hidden p-4 relative transform transition-transform duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
-            >
-              <div className="absolute top-4 left-4 bg-red-500 text-white text-sm px-2 py-1 rounded">
-                {property.status}
-              </div>
-              <img
-                src={property.img}
-                alt={property.title}
-                className="h-40 w-full object-cover mb-4 rounded"
-              />
-              <h3 className="text-lg font-semibold mb-2">{property.title}</h3>
-              <p className="text-gray-600">
-                {property.price} · {property.features}
-              </p>
-            </div>
-          ))}
-
-          {/* Show Overview / Hide Overview card */}
-          <div
-            onClick={() => setShowOverview(!showOverview)}
-            className="flex flex-col items-center justify-center bg-gradient-to-t from-[#f18c08] to-[#f19448]  text-white font-semibold rounded-lg shadow-lg cursor-pointer hover:bg-orange-600 transition duration-300 p-4"
-          >
-            {showOverview ? "Hide Overview" : "Show Overview"}
-            <div className="mt-2 animate-bounce">
-              {showOverview ? (
-                <FaChevronUp size={20} />
-              ) : (
-                <FaChevronDown size={20} />
-              )}
-            </div>
-          </div>
-
-          {/* Extra properties  */}
-          {showOverview &&
-            extraProperties.map((property, index) => (
+          {/* showOverview  */}
+          {(showOverview ? fetchFeatured : fetchFeatured.slice(0, 3)).map(
+            (property) => (
               <div
-                key={index + mainProperties.length}
-                className="bg-white shadow rounded-lg overflow-hidden p-4 relative transform hover:scale-105 cursor-pointer transition-opacity duration-500 ease-in-out opacity-100"
+                key={property.id}
+                className="bg-white shadow rounded-lg overflow-hidden p-4 relative transform transition-transform duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
               >
                 <div className="absolute top-4 left-4 bg-red-500 text-white text-sm px-2 py-1 rounded">
-                  {property.status}
+                  For Sale
                 </div>
                 <img
-                  src={property.img}
+                  src={property.media[0] || BuyLand}
                   alt={property.title}
                   className="h-40 w-full object-cover mb-4 rounded"
                 />
                 <h3 className="text-lg font-semibold mb-2">{property.title}</h3>
                 <p className="text-gray-600">
-                  {property.price} · {property.features}
+                  {property.price ? `$${property.price}` : "Price on request"} ·{" "}
                 </p>
+                <p className="text-gray-500 text-sm">{property.city}</p>
               </div>
-            ))}
+            )
+          )}
+
+          {/* Show / Hide Overview*/}
+          {fetchFeatured.length > 3 && (
+            <div
+              onClick={() => setShowOverview(!showOverview)}
+              className="flex flex-col items-center justify-center bg-gradient-to-t from-[#f18c08] to-[#f19448] text-white font-semibold rounded-lg shadow-lg cursor-pointer hover:bg-orange-600 transition duration-300 p-4"
+            >
+              {showOverview ? "Hide Overview" : "Show Overview"}
+              <div className="mt-2 animate-bounce">
+                {showOverview ? (
+                  <FaChevronUp size={20} />
+                ) : (
+                  <FaChevronDown size={20} />
+                )}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

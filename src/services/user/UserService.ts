@@ -14,7 +14,7 @@ export default class UserService extends CoreApiService {
   async logout() {
     return this.get<APIResponseWithMessage>("logout");
   }
-  async register(data: User) {
+  async register(data: FormData) {
     return this.post<APIResponse<UserLogin>>("signup", data);
   }
 }

@@ -5,6 +5,7 @@ import { HiMenu, HiX, HiSearch } from "react-icons/hi";
 import logo from "../assets/logo.svg";
 
 interface HeaderProps {
+
   isLoggedIn: boolean;
   setIsLoggedIn: (loggedIn: boolean) => void;
 }
@@ -50,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn, setIsLoggedIn }) => {
         setSearchOpen(false);
       }, 5000);
       return () => clearTimeout(timer);
-    }
+    } 
   }, [searchOpen, searchQuery]);
 
   // search on route change
