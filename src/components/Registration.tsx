@@ -4,7 +4,7 @@ import { CheckCircle2, Facebook, Twitter, Eye, EyeOff } from "lucide-react";
 import SignInPic from "../assets/SignInPic.png";
 import logo from "../assets/logo.svg";
 import UserService from "../services/user/UserService";
-import { User } from "types/User";
+import { User } from "@/types/User";
 import { useNavigate } from "react-router-dom";
 export default function RegisterTwoPanel() {
   const [form, setForm] = useState({

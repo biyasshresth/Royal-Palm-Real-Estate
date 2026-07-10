@@ -1,4 +1,4 @@
-import { UserView } from "types/User";
+import { UserView } from "@/types/User";
 
 export interface UserCredentials {
   identifier: string;
