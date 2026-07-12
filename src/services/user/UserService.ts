@@ -1,8 +1,7 @@
+import { UserCredentials, UserLogin } from "@/types/User";
 import CoreApiService from "../../core/CoreApiService";
-import { APIResponse, APIResponseWithMessage } from "types/APIResponse";
-import { UserCredentials } from "types/auth/UserLogin";
-import { User, UserLogin } from "types/User";
-
+import { APIResponse, APIResponseWithMessage } from "@/types/APIResponse";
+   
 export default class UserService extends CoreApiService {
   constructor() {
     super("");

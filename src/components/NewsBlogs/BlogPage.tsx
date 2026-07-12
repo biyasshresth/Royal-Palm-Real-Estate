@@ -8,8 +8,8 @@ import ModernHome from "../../assets/ModernHome.jpg";
 import Invstcul from "../../assets/Invstcul.png";
 import BIP from "../../assets/BIP.png";
 import BlogService from "../../services/Blog";
-import { Blog } from "types/blogs.ts/blog";
-
+import { Blog } from "@/types/blogs/blog";
+ 
 const BlogPage: FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);

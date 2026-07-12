@@ -1,7 +1,7 @@
+import { Partners } from "@/types/auth/Partners";
 import CoreApiService from "../../core/CoreApiService";
-import { APIResponse,APIResponseWithMessage } from "types/APIResponse" ;
-import { Partners } from "types/auth/Partners";
-
+import { APIResponse } from "@/types/APIResponse";
+  
 export default class PartnerService extends CoreApiService {
   constructor(){
     super("");
