@@ -1,7 +1,7 @@
- import CoreApiService from "../core/CoreApiService";
-import { APIResponse, APIResponseWithMessage } from "types/APIResponse";
-import { Property } from "types/auth/Property";
- 
+ import { Property } from "@/types/auth/Property";
+import CoreApiService from "../core/CoreApiService";
+import { APIResponse, APIResponseWithMessage } from "@/types/APIResponse";
+   
 
 export default class PropertyService extends CoreApiService {
   constructor() {
